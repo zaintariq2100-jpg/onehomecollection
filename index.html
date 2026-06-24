@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Homes Collection - Branded Residence Presentation</title>
+    <title>One Homes Collection - Branded Residence</title>
     <style>
-        /* 1. Reset and Theme Variables */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
+        /* 1. Reset and Premium Theme Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
         :root {
-            --bg-deep-green: #0a110e; /* Deep forest green/black */
-            --text-main: #f0f2eb;     /* Off-white / Sage */
-            --accent-gold: #c5a059;   /* Dull gold */
-            --accent-sage: #4a6c5f;
-            --layer-bg: rgba(21, 36, 29, 0.7); /* Translucent layer background */
+            --bg-dark-green: #040806; /* Ultra-dark, rich forest green */
+            --bg-panel: #0a120e;      /* Slightly lighter panel color */
+            --text-main: #e8ecea;     /* Crisp off-white */
+            --text-muted: #a4b3ac;    /* Muted sage grey for body text */
+            --accent-gold: #D4AF37;   /* Classic elegant gold */
         }
 
         * {
@@ -24,264 +24,240 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep-green);
+            background-color: var(--bg-dark-green);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.8; /* Increased line-height for editorial feel */
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        /* 2. Sophisticated Typography */
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cinzel', serif;
             font-weight: 400;
-            letter-spacing: -1px;
+            letter-spacing: 1px;
+            color: #ffffff;
         }
 
-        /* 2. Full-Screen Section Layouts */
+        .title-large {
+            font-size: clamp(2rem, 4vw, 3.5rem); /* Reduced from massive sizes */
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .body-text {
+            font-size: clamp(1rem, 1.5vw, 1.15rem); /* Elegant, readable size */
+            font-weight: 300;
+            max-width: 650px; /* Narrower line length for better readability */
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-text {
+            color: white;
+            font-weight: 400;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background-color: var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        /* 3. Minimalist Layouts */
         section {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10vh 5vw;
+            padding: 12vh 5vw;
             position: relative;
             z-index: 1;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             width: 100%;
             z-index: 5;
             position: relative;
         }
 
-        /* 3. Global Typography & Elements */
-        .title-large {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-transform: capitalize;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .body-text {
-            font-size: clamp(1.1rem, 2vw, 1.8rem);
-            font-weight: 300;
-            max-width: 800px;
-            margin-bottom: 1.5rem;
-            color: #caced0;
-        }
-
-        .highlight-text {
-            color: white;
-            font-weight: 600;
-        }
-
-        .gold-line {
-            width: 80px;
-            height: 2px;
-            background-color: var(--accent-gold);
-            margin-bottom: 2rem;
-        }
-
-        /* 4. Layered Content Box Styles */
-        .content-layer {
-            background-color: var(--layer-bg);
-            backdrop-filter: blur(15px); /* Modern frosted glass effect */
-            -webkit-backdrop-filter: blur(15px);
-            padding: 4rem;
-            border-radius: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.15); /* Subtle gold border */
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4); /* Strong shadow for depth */
-            position: relative;
-            z-index: 5;
-        }
-
-        @media (max-width: 768px) {
-            .content-layer { padding: 2rem; }
-            section { padding: 8vh 4vw; }
-        }
-
-        /* 5. Split Section Layouts */
+        /* Split Section for balancing text and images */
         .split-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: 5rem;
             align-items: center;
-        }
-
-        .image-block {
-            position: relative;
-            z-index: 1;
         }
 
         .image-block img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-radius: 4px; /* Sharper, more elegant corners */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         @media (max-width: 900px) {
-            .split-layout { grid-template-columns: 1fr; gap: 4rem; }
+            .split-layout { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+            .body-text { margin-left: auto; margin-right: auto; }
+            .gold-line { margin-left: auto; margin-right: auto; }
         }
 
-        /* 6. Text and Image Background Styles */
-        .bg-image {
+        /* 4. Background Images & Dark Gradients */
+        .bg-wrapper {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.2; /* Dims the background video layer */
-            z-index: 0;
+            object-position: center;
+            opacity: 0.4; /* Let the image show through slightly */
         }
 
-        /* Institutional Gradient Overlay */
-        .overlay-gradient {
+        /* Deep green gradient overlay to make text pop */
+        .gradient-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10,17,14,0) 0%, rgba(10,17,14,0.7) 100%);
+            background: linear-gradient(180deg, rgba(4,8,6,0.3) 0%, rgba(4,8,6,0.95) 100%);
             z-index: 1;
         }
 
-        /* 7. Interactive Numbers */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            padding-top: 4rem;
+        .gradient-overlay-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(4,8,6,0.95) 0%, rgba(4,8,6,0.4) 100%);
+            z-index: 1;
         }
 
-        .stat-box {
-            text-align: left;
+        /* 5. Minimalist Stat Counters */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15); /* Very thin gold line */
+            padding-top: 3rem;
         }
 
         .stat-box h3 {
-            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--accent-gold);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 0.2rem;
             line-height: 1;
         }
 
         .stat-box p {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #A3B19B; /* Sage grey description text */
+            color: #8c9c95;
         }
 
-        /* 8. Modern Scroll Animations */
-        
-        /* 8a. Global Animation Base (Pre-Animation State) */
+        /* 6. Snappy, High-Performance Animations */
         .animate-in {
             opacity: 0;
-            transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Sped up from 1.2s */
         }
 
-        /* 8b. Animation Subtypes */
-        .fade-up { transform: translateY(50px); }
-        .slide-left { transform: translateX(100px); }
-        .slide-right { transform: translateX(-100px); }
-
-        /* 8c. State When Visible in Viewport */
         .animate-in.visible {
             opacity: 1;
-            transform: translate(0, 0);
+            transform: translateY(0);
         }
 
-        /* Transition Delays for Staggering Content */
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
-        .delay-3 { transition-delay: 0.6s; }
-
-        /* Disable animations on mobile for performance */
-        @media (prefers-reduced-motion: reduce) {
-            .animate-in {
-                transition: none;
-                opacity: 1;
-                transform: none;
-            }
-        }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
 
     </style>
 </head>
 <body>
 
     <section id="hero">
-        <img src="2.png" alt="One Canal Road Wide Aerial" class="bg-image">
-        <div class="overlay-gradient"></div>
-        <div class="container">
-            <div class="content-layer animate-in fade-up">
+        <div class="bg-wrapper">
+            <img src="2.jpg" alt="One Canal Road Wide Aerial" class="bg-image">
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container" style="text-align: center;">
+            <div class="animate-in">
                 <div class="subtitle">One Homes Collection</div>
-                <div class="gold-line"></div>
-                <h1 class="title-large highlight-text">Here’s why One Canal Road shouldn’t allow Airbnb.</h1>
-                
-                <p class="body-text delay-2 animate-in fade-up" style="margin-top: 3rem;">Because Airbnb is too small.</p>
+                <div class="gold-line" style="margin: 0 auto 2rem auto;"></div>
+                <h1 class="title-large">Here’s why One Canal Road shouldn’t allow Airbnb.</h1>
+                <p class="body-text highlight-text delay-2 animate-in" style="margin: 3rem auto 0 auto; font-size: 1.3rem;">Because Airbnb is too small.</p>
             </div>
         </div>
     </section>
 
-    <section id="transition">
-        <div class="container">
-            <div class="animate-in fade-up">
-                <h2 class="title-large highlight-text">Most developers make money once.</h2>
-                <div class="gold-line" style="margin-top: 1.5rem;"></div>
+    <section id="transition" style="background-color: var(--bg-panel);">
+        <div class="container" style="text-align: center;">
+            <div class="animate-in">
+                <h2 class="title-large">Most developers make money once.</h2>
+                <div class="gold-line" style="margin: 1.5rem auto;"></div>
             </div>
             
-            <div class="animate-in fade-up delay-2">
-                <p class="body-text">They sell an apartment. The buyer gets the keys. <span class="highlight-text">And the revenue stops.</span></p>
-                <p class="body-text" style="color: var(--accent-gold); margin-top: 2rem;">But what if every apartment sold became a recurring revenue asset for One Homes?</p>
-                <p class="body-text">What if One Canal Road became Pakistan’s next <span class="highlight-text">luxury branded residence?</span></p>
+            <div class="animate-in delay-1">
+                <p class="body-text" style="margin: 0 auto;">They sell an apartment. The buyer gets the keys. <span class="highlight-text">And the revenue stops.</span></p>
+                <p class="body-text" style="color: var(--accent-gold); margin: 2rem auto;">But what if every apartment sold became a recurring revenue asset for One Homes?</p>
+                <p class="body-text" style="margin: 0 auto;">What if One Canal Road became Pakistan’s next <span class="highlight-text">luxury branded residence?</span></p>
             </div>
         </div>
     </section>
 
     <section id="big-idea">
+        <div class="bg-wrapper">
+            <img src="5.jpg" alt="Architecture" class="bg-image" loading="lazy">
+            <div class="gradient-overlay-side"></div>
+        </div>
         <div class="container split-layout">
-            <div class="animate-in fade-up content-layer">
+            <div class="animate-in">
                 <div class="subtitle">The Big Idea</div>
-                <h2 class="title-large highlight-text">The hard part is already done.</h2>
+                <h2 class="title-large">The hard part is already done.</h2>
                 <p class="body-text">Location. Architecture. Amenities. Brand. Investors. The only thing missing is a hospitality platform.</p>
                 <p class="body-text highlight-text" style="margin-top: 1.5rem;"><strong>One Homes Collection.</strong> Powered by Expat Stays.</p>
             </div>
-            <div class="image-block animate-in slide-left delay-1">
-                <img src="5.png" alt="architecture close-up, side angle showing balconies" loading="lazy">
-            </div>
+            <div></div>
         </div>
     </section>
 
-    <section id="market-data" style="background-color: #111e17;">
+    <section id="market-data" style="background-color: var(--bg-dark-green);">
         <div class="container">
-            <div class="content-layer animate-in fade-up">
-                <div class="subtitle">Why The Market Exists</div>
-                <h2 class="title-large highlight-text">The Idle Asset Problem</h2>
-                <p class="body-text">Millions of overseas Pakistanis visit every year. Many own property here. But most apartments remain empty for the majority of the year, <span class="highlight-text">generating no income.</span></p>
+            <div class="animate-in text-center">
+                <div class="subtitle">The Market</div>
+                <h2 class="title-large">The Idle Asset Problem</h2>
+                <p class="body-text">Millions of overseas Pakistanis visit every year. Many own property here. But most apartments remain empty for the majority of the year, generating no income.</p>
                 
-                <div class="stat-grid delay-2 animate-in fade-up">
+                <div class="stat-grid delay-1 animate-in">
                     <div class="stat-box">
                         <h3><span class="counter" data-target="9000000">0</span>+</h3>
                         <p>Overseas Pakistanis</p>
                     </div>
                     <div class="stat-box">
-                        <h3>$0</h3>
-                        <p>Current Yield of Vacant Assets</p>
+                        <h3 style="color: #fff;">$0</h3>
+                        <p>Current Yield</p>
                     </div>
                 </div>
             </div>
@@ -290,28 +266,28 @@
 
     <section id="differentiator">
         <div class="container split-layout">
-            <div class="image-block animate-in slide-right">
-                <img src="6.png" alt="closer architecture close-up, frontal view, showing premium amenities details" loading="lazy">
+            <div class="image-block animate-in">
+                <img src="6.jpg" alt="Amenities" loading="lazy">
             </div>
-            <div class="animate-in fade-up delay-1 content-layer">
+            <div class="animate-in delay-1">
                 <div class="subtitle">The Differentiator</div>
-                <h2 class="title-large highlight-text">Not another hotel. A new category.</h2>
-                <p class="body-text">PC Hotel, The Nishat, Avari, and The Fred command $100–$180/night. But they are still just hotel rooms.</p>
-                
-                <div class="body-text highlight-text" style="font-size: 1.3rem;">One Canal Road provides:</div>
-                <p class="body-text" style="font-size: 1.1rem; margin-top: 0.5rem; color: #fff;">More Space. Full Kitchens. Multiple Bedrooms. Premium Amenities.</p>
+                <h2 class="title-large">Not another hotel.<br>A new category.</h2>
+                <p class="body-text">PC Hotel, The Nishat, Avari, and The Fred command premium nightly rates. But they are still just hotel rooms.</p>
+                <div class="gold-line"></div>
+                <p class="body-text highlight-text">One Canal Road provides:</p>
+                <p class="body-text" style="font-size: 1rem;">More Space • Full Kitchens • Multiple Bedrooms • Premium Amenities</p>
             </div>
         </div>
     </section>
 
-    <section id="revenue-1">
+    <section id="revenue-1" style="background-color: var(--bg-panel);">
         <div class="container">
-            <div class="content-layer animate-in fade-up">
+            <div class="animate-in">
                 <div class="subtitle">Revenue Stream 1</div>
-                <h2 class="title-large highlight-text">Apartment Setup Margins</h2>
+                <h2 class="title-large">Apartment Setup Margins</h2>
                 <p class="body-text">Every apartment entering the program needs furnishing and setup. This creates revenue before the first booking.</p>
                 
-                <div class="stat-grid delay-2 animate-in fade-up">
+                <div class="stat-grid delay-1 animate-in">
                     <div class="stat-box">
                         <h3>$<span class="counter" data-target="10000">0</span></h3>
                         <p>Setup Cost</p>
@@ -321,115 +297,101 @@
                         <p>Owner Invoice</p>
                     </div>
                     <div class="stat-box">
-                        <h3 class="highlight-text">$<span class="counter" data-target="2000">0</span></h3>
-                        <p style="color: var(--accent-gold);">Shared Margin (60/40)</p>
+                        <h3 style="color: #fff;">$<span class="counter" data-target="2000">0</span></h3>
+                        <p style="color: var(--accent-gold);">Margin Created</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="revenue-2" style="background-color: #111e17;">
-        <div class="container">
-            <div class="content-layer animate-in fade-up">
+    <section id="revenue-2">
+        <div class="bg-wrapper">
+            <img src="7.jpg" alt="Building View" class="bg-image" loading="lazy">
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container" style="text-align: center;">
+            <div class="animate-in">
                 <div class="subtitle">Revenue Stream 2</div>
-                <h2 class="title-large highlight-text">Recurring Management Fees</h2>
-                <p class="body-text">One Homes earns recurring revenue from apartments it has already sold. We manage the operations, you earn the return.</p>
+                <h2 class="title-large">Recurring Management Fees</h2>
+                <p class="body-text" style="margin: 0 auto;">One Homes earns recurring revenue from apartments it has already sold. We manage the operations, you earn the return.</p>
                 
-                <div class="stat-grid delay-2 animate-in fade-up">
+                <div class="stat-grid delay-1 animate-in" style="text-align: center;">
                     <div class="stat-box">
                         <h3>$<span class="counter" data-target="12000">0</span></h3>
-                        <p>Example Annual Revenue (Single Unit)</p>
+                        <p>Example Annual Revenue</p>
                     </div>
                     <div class="stat-box">
                         <h3><span class="counter" data-target="25">0</span>%</h3>
                         <p>Management Fee</p>
                     </div>
                     <div class="stat-box">
-                        <h3 class="highlight-text">$<span class="counter" data-target="3000">0</span></h3>
-                        <p style="color: var(--accent-gold);">Recurring Annual Fee Per Unit</p>
+                        <h3 style="color: #fff;">$<span class="counter" data-target="3000">0</span></h3>
+                        <p style="color: var(--accent-gold);">Recurring Annual Fee</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="revenue-3">
+    <section id="revenue-3" style="background-color: var(--bg-dark-green);">
         <div class="container split-layout">
-            <div class="animate-in fade-up content-layer">
+            <div class="animate-in">
                 <div class="subtitle">Revenue Stream 3</div>
-                <h2 class="title-large highlight-text">Staff Utilisation</h2>
+                <h2 class="title-large">Staff Utilisation</h2>
                 <p class="body-text">Leverage existing infrastructure. Housekeeping and support teams are utilized and paid by the hospitality division when supporting guests.</p>
-                <p class="body-text" style="color: var(--accent-gold); margin-top: 1rem; font-weight: 600;">This offsets staffing costs and heavily subsidizes the building’s operational ecosystem.</p>
+                <div class="gold-line"></div>
+                <p class="body-text" style="color: var(--accent-gold);">This offsets staffing costs and heavily subsidizes the building’s operational ecosystem.</p>
             </div>
-            <div class="image-block animate-in slide-left delay-1">
-                <img src="1.png" alt="Wide view of the building environment suggesting infrastructure" loading="lazy">
+            <div class="image-block animate-in delay-1">
+                <img src="1.jpg" alt="Infrastructure" loading="lazy">
             </div>
         </div>
     </section>
 
-    <section id="future-sales">
-        <div class="container">
-            <div class="content-layer animate-in fade-up">
-                <div class="subtitle">Future Sales & Retention</div>
-                <h2 class="title-large highlight-text">Every Guest Becomes a Potential Buyer</h2>
-                <p class="body-text">The hospitality platform becomes a powerful sales engine. High-yielding assets retain investors and build loyalty.</p>
+    <section id="future-sales" style="background-color: var(--bg-panel);">
+        <div class="container" style="text-align: center;">
+            <div class="animate-in">
+                <div class="subtitle">Retention & Growth</div>
+                <h2 class="title-large">Every Guest is a Potential Buyer</h2>
+                <p class="body-text" style="margin: 0 auto;">The hospitality platform becomes a powerful sales engine. High-yielding assets retain investors and build long-term loyalty.</p>
                 
-                <div class="stat-grid delay-2 animate-in fade-up">
+                <div class="stat-grid delay-1 animate-in" style="text-align: center;">
                     <div class="stat-box">
-                        <h3><span class="counter" data-target="3">0</span>%</h3>
-                        <p>Traditional Rental Return</p>
+                        <h3 style="color: #fff;"><span class="counter" data-target="3">0</span>%</h3>
+                        <p>Traditional Return</p>
                     </div>
                     <div class="stat-box">
-                        <h3 class="highlight-text"><span class="counter" data-target="12">0</span>%</h3>
-                        <p style="color: var(--accent-gold);">Potential Branded Residence Return</p>
+                        <h3><span class="counter" data-target="12">0</span>%</h3>
+                        <p>Branded Residence Return</p>
                     </div>
                     <div class="stat-box">
-                        <h3 class="highlight-text">$<span class="counter" data-target="30000">0</span></h3>
-                        <p>Potential Return on $250k Asset</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="bagh-proof" style="background-color: #111e17;">
-        <div class="container split-layout">
-            <div class="image-block animate-in slide-right">
-                <img src="7.png" alt="wide architectural view for Bagh section proof" loading="lazy">
-            </div>
-            <div class="animate-in fade-up delay-1 content-layer">
-                <div class="subtitle">Direct Market Access & Proof</div>
-                <h2 class="title-large highlight-text">Bagh Proof of Concept</h2>
-                <p class="body-text">Managing 'Bagh', a luxury hospitality property, proved the massive demand for premium, private experiences among overseas Pakistanis.</p>
-                <div class="stat-grid" style="margin-top: 2rem; padding-top: 2rem;">
-                    <div class="stat-box">
-                        <h3><span class="counter" data-target="60000">0</span>+</h3>
-                        <p style="font-size: 0.9rem;">Follower Community (Overseas Demographics)</p>
+                        <h3>$<span class="counter" data-target="30000">0</span></h3>
+                        <p>Return on $250k Asset</p>
                     </div>
                 </div>
-                <p class="body-texthighlight-text" style="margin-top: 2rem; font-size: 1.1rem; color: #fff;">We bring operations, marketing, and zero-cost customer acquisition from day one.</p>
             </div>
         </div>
     </section>
 
     <section id="closing">
-        <img src="2.png" alt="One Canal Road Wide Aerial" class="bg-image" loading="lazy">
-        <div class="overlay-gradient"></div>
-        <div class="container animate-in fade-up" style="text-align: center;">
-            <div class="content-layer">
-                <h2 class="title-large highlight-text">The opportunity isn’t to create another rental program.</h2>
-                <p class="body-text" style="margin: 2rem auto; max-width: 650px;">The opportunity is to create Pakistan’s leading branded residence platform.</p>
-                <h2 class="title-large highlight-text" style="color: var(--accent-gold); margin-top: 4rem; font-size: clamp(3rem, 7vw, 6rem);">One Homes Collection.</h2>
-                <div class="subtitle">Powered by Expat Stays.</div>
-                
-                <p class="body-text highlight-text" style="margin: 3rem auto 0 auto; max-width: 600px; font-size: 1.2rem;">A smarter way to own.<br>A better way to stay.<br>And a new way for One Homes to grow.</p>
-            </div>
+        <div class="bg-wrapper">
+            <img src="2.jpg" alt="Aerial" class="bg-image" loading="lazy">
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container animate-in" style="text-align: center;">
+            <h2 class="title-large">The opportunity isn’t to create another rental program.</h2>
+            <p class="body-text highlight-text" style="margin: 1rem auto;">It is to create Pakistan’s leading branded residence platform.</p>
+            
+            <h2 class="title-large" style="color: var(--accent-gold); margin-top: 4rem; font-size: clamp(2.5rem, 5vw, 4.5rem);">One Homes Collection.</h2>
+            <div class="subtitle" style="color: #fff;">Powered by Expat Stays.</div>
+            
+            <div class="gold-line" style="margin: 2rem auto;"></div>
+            <p class="body-text highlight-text" style="margin: 0 auto;">A smarter way to own.<br>A better way to stay.<br>And a new way for One Homes to grow.</p>
         </div>
     </section>
 
     <script>
-        // 9a. Scroll Observer for Fade-Up and Slide-In Animations
         const fadeElements = document.querySelectorAll('.animate-in');
         const observerOptions = { threshold: 0.15 }; 
 
@@ -450,10 +412,9 @@
 
         fadeElements.forEach(el => appearanceObserver.observe(el));
 
-        // 9b. Dynamic Number Counter Function
         function animateCounter(counter) {
             const target = +counter.getAttribute('data-target');
-            const duration = 2000; 
+            const duration = 1500; // Faster number rolling (1.5s)
             const startTime = performance.now();
 
             function updateCounter(currentTime) {
