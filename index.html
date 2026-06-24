@@ -118,11 +118,22 @@
             top: 0; left: 0; right: 0;
             z-index: 100;
             padding: 1.4rem 5vw;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
             background: linear-gradient(to bottom, rgba(4,8,6,0.9), transparent);
             backdrop-filter: blur(2px);
+        }
+        .nav-left { justify-self: start; }
+        .nav-center { justify-self: center; }
+        .nav-right { justify-self: end; }
+        .nav-brand-logo {
+            height: 88px;
+            display: block;
+        }
+        .nav-partner-logo {
+            height: 48px;
+            display: block;
         }
         .nav-brand {
             font-family: 'Cinzel', serif;
@@ -293,6 +304,13 @@
             font-size: 0.7rem;
             color: var(--muted);
             line-height: 1.5;
+        }
+        #occupancy-roi .stat-cards {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0;
         }
         .expat-story-grid {
             display: grid;
@@ -858,13 +876,15 @@
 
 <!-- ── NAV ──────────────────────────────── -->
 <nav>
-    <div>
+    <div class="nav-left">
         <div class="nav-brand">One Homes Collection</div>
         <div class="nav-sub">Powered by Expat Stays</div>
     </div>
-    <div class="nav-logos">
-        <img src="logo2_bg_less.png" alt="One Homes" height="54px">
-        <img src="logo_bg_less.png" alt="Expat Stays" height="64px">
+    <div class="nav-center">
+        <img src="logo_bg_less.png" alt="Expat Stays" class="nav-brand-logo">
+    </div>
+    <div class="nav-right">
+        <img src="logo2_bg_less.png" alt="One Homes" class="nav-partner-logo">
     </div>
 </nav>
 
@@ -1311,6 +1331,86 @@
             <div class="logic-arrow">→</div>
             <div class="logic-step dark">≈ 48% Owner Net</div>
         </div>
+    </div>
+</section>
+
+
+<!-- ── OCCUPANCY ROI ──────────────────────── -->
+<section id="occupancy-roi" style="background:var(--panel-light);">
+    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
+        <div class="fade-up" style="text-align:center;">
+            <div class="eyebrow">Occupancy ROI — One Canal Road</div>
+            <div class="hairline" style="margin:0 auto 2rem;"></div>
+            <h2 class="display">A branded residence platform powered by Expat Stays</h2>
+            <p class="body-copy" style="margin:1.5rem auto 0; text-align:center;">
+                Management fee: 25% of projected gross revenue. Owner revenue: 75% after management fee.
+            </p>
+        </div>
+
+        <div class="stat-cards fade-up delay-1" style="margin-top:4rem;">
+            <div class="stat-card">
+                <div class="number">25%</div>
+                <div class="label">Conservative Case</div>
+                <div class="description">
+                    Gross Revenue $1.38M<br>
+                    Owner Revenue $1.03M<br>
+                    Yield 4.94%
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="number">50%</div>
+                <div class="label">Base Case</div>
+                <div class="description">
+                    Gross Revenue $2.76M<br>
+                    Owner Revenue $2.07M<br>
+                    Yield 9.87%
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="number">80%</div>
+                <div class="label">High Performance</div>
+                <div class="description">
+                    Gross Revenue $4.42M<br>
+                    Owner Revenue $3.31M<br>
+                    Yield 15.80%
+                </div>
+            </div>
+        </div>
+
+        <table class="data-table fade-up delay-2" style="margin-top:4rem;">
+            <thead>
+                <tr>
+                    <th>Occupancy</th>
+                    <th>Gross Revenue</th>
+                    <th>Expat Stays Fee</th>
+                    <th>Owner Revenue</th>
+                    <th>Yield</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>25%</td>
+                    <td>$1.38M</td>
+                    <td>$345K</td>
+                    <td>$1.03M</td>
+                    <td class="gold">4.94%</td>
+                </tr>
+                <tr>
+                    <td>50%</td>
+                    <td>$2.76M</td>
+                    <td>$690K</td>
+                    <td>$2.07M</td>
+                    <td class="gold">9.87%</td>
+                </tr>
+                <tr>
+                    <td>80%</td>
+                    <td>$4.42M</td>
+                    <td>$1.10M</td>
+                    <td>$3.31M</td>
+                    <td class="gold">15.80%</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
