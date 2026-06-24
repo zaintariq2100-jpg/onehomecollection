@@ -225,7 +225,7 @@
 <body>
 
     <section id="hero">
-        <img src="DJI_20260521191114_0043_D.png" alt="One Canal Road Wide Aerial" class="bg-image">
+        <img src="2.png" alt="One Canal Road Wide Aerial" class="bg-image">
         <div class="overlay-gradient"></div>
         <div class="container">
             <div class="content-layer animate-in fade-up">
@@ -262,12 +262,12 @@
                 <p class="body-text highlight-text" style="margin-top: 1.5rem;"><strong>One Homes Collection.</strong> Powered by Expat Stays.</p>
             </div>
             <div class="image-block animate-in slide-left delay-1">
-                <img src="DJI_20260521191707_0061_D2.png" alt="architecture close-up, side angle showing balconies">
+                <img src="5.png" alt="architecture close-up, side angle showing balconies" loading="lazy">
             </div>
         </div>
     </section>
 
-    <section id="market-data" style="background-color: #111e17; /* Darker green for variance */">
+    <section id="market-data" style="background-color: #111e17;">
         <div class="container">
             <div class="content-layer animate-in fade-up">
                 <div class="subtitle">Why The Market Exists</div>
@@ -291,7 +291,7 @@
     <section id="differentiator">
         <div class="container split-layout">
             <div class="image-block animate-in slide-right">
-                <img src="DJI_20260521191509_0058_D.png" alt="closer architecture close-up, frontal view, showing premium amenities details">
+                <img src="6.png" alt="closer architecture close-up, frontal view, showing premium amenities details" loading="lazy">
             </div>
             <div class="animate-in fade-up delay-1 content-layer">
                 <div class="subtitle">The Differentiator</div>
@@ -329,7 +329,7 @@
         </div>
     </section>
 
-    <section id="revenue-2" style="background-color: #111e17; /* Institutional dark green */">
+    <section id="revenue-2" style="background-color: #111e17;">
         <div class="container">
             <div class="content-layer animate-in fade-up">
                 <div class="subtitle">Revenue Stream 2</div>
@@ -363,7 +363,7 @@
                 <p class="body-text" style="color: var(--accent-gold); margin-top: 1rem; font-weight: 600;">This offsets staffing costs and heavily subsidizes the building’s operational ecosystem.</p>
             </div>
             <div class="image-block animate-in slide-left delay-1">
-                <img src="DJI_20260521133709_0011_D.png" alt="Wide view of the building environment suggesting infrastructure">
+                <img src="1.png" alt="Wide view of the building environment suggesting infrastructure" loading="lazy">
             </div>
         </div>
     </section>
@@ -396,7 +396,7 @@
     <section id="bagh-proof" style="background-color: #111e17;">
         <div class="container split-layout">
             <div class="image-block animate-in slide-right">
-                <img src="DJI_20260521191119_0046_D.png" alt="wide architectural view for Bagh section proof">
+                <img src="7.png" alt="wide architectural view for Bagh section proof" loading="lazy">
             </div>
             <div class="animate-in fade-up delay-1 content-layer">
                 <div class="subtitle">Direct Market Access & Proof</div>
@@ -414,7 +414,7 @@
     </section>
 
     <section id="closing">
-        <img src="DJI_20260521191114_0043_D.png" alt="One Canal Road Wide Aerial" class="bg-image">
+        <img src="2.png" alt="One Canal Road Wide Aerial" class="bg-image" loading="lazy">
         <div class="overlay-gradient"></div>
         <div class="container animate-in fade-up" style="text-align: center;">
             <div class="content-layer">
@@ -431,14 +431,13 @@
     <script>
         // 9a. Scroll Observer for Fade-Up and Slide-In Animations
         const fadeElements = document.querySelectorAll('.animate-in');
-        const observerOptions = { threshold: 0.15 }; // Element must be 15% visible to trigger
+        const observerOptions = { threshold: 0.15 }; 
 
         const appearanceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible'); // Adds the 'visible' class to trigger CSS animation
+                    entry.target.classList.add('visible'); 
                     
-                    // Trigger dynamic number counters if present within this visible content block
                     const counters = entry.target.querySelectorAll('.counter');
                     counters.forEach(counter => {
                         if (!counter.classList.contains('counted')) {
@@ -454,18 +453,18 @@
         // 9b. Dynamic Number Counter Function
         function animateCounter(counter) {
             const target = +counter.getAttribute('data-target');
-            const duration = 2000; // Animation duration in milliseconds
+            const duration = 2000; 
             const startTime = performance.now();
 
             function updateCounter(currentTime) {
                 const elapsedTime = currentTime - startTime;
                 if (elapsedTime < duration) {
                     const currentCount = Math.ceil((elapsedTime / duration) * target);
-                    counter.innerText = currentCount.toLocaleString(); // Format with commas
+                    counter.innerText = currentCount.toLocaleString(); 
                     requestAnimationFrame(updateCounter);
                 } else {
-                    counter.innerText = target.toLocaleString(); // Final formatted target
-                    counter.classList.add('counted'); // Ensure animation only runs once
+                    counter.innerText = target.toLocaleString(); 
+                    counter.classList.add('counted'); 
                 }
             }
             requestAnimationFrame(updateCounter);
