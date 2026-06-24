@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Homes Collection - Branded Residence Presentation</title>
+    <title>One Homes Collection - Branded Residence</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap');
-
-        :root {
-            --bg-dark-green: #040806;
-            --accent-gold: #D4AF37;
-            --text-main: #e8ecea;
-            --text-muted: #a4b3ac;
-        }
-
+        :root { --bg-dark-green: #040806; --accent-gold: #D4AF37; --text-main: #e8ecea; --text-muted: #a4b3ac; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark-green); color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
-
         h1, h2 { font-family: 'Cinzel', serif; color: #ffffff; }
         section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10vh 5vw; position: relative; }
-        
         .container { max-width: 1000px; width: 100%; position: relative; z-index: 2; }
         .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 0; }
         .gradient-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(4,8,6,0.3) 0%, rgba(4,8,6,0.95) 100%); z-index: 1; }
-
         .title-large { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1.5rem; }
         .body-text { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
-        .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent-gold); margin-bottom: 1.5rem; }
-        
-        /* Bar Chart */
+        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .image-block img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .chart-container { display: flex; align-items: flex-end; gap: 20px; height: 200px; margin: 40px 0; border-bottom: 2px solid #333; }
         .bar { width: 80px; background: var(--accent-gold); position: relative; transition: height 1.5s ease-out; height: 0; }
         .bar span { position: absolute; top: -30px; width: 100%; text-align: center; color: white; font-weight: 600; }
-
-        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .image-block img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
@@ -44,16 +30,16 @@
         <img src="2.png" class="bg-image" alt="Background">
         <div class="gradient-overlay"></div>
         <div class="container" style="text-align: center;">
-            <h1 class="title-large">Why One Canal Road shouldn't allow Airbnb.</h1>
+            <h1 class="title-large">Here’s why One Canal Road shouldn’t allow Airbnb.</h1>
             <p class="body-text" style="max-width: 700px; margin: 2rem auto;">Because a standard rental model fails to capture the true luxury premium of the diaspora market.</p>
         </div>
     </section>
 
-    <!-- Market Opportunity -->
+    <!-- The Problem -->
     <section>
         <div class="container">
-            <h2 class="title-large">Market Opportunity</h2>
-            <p class="body-text">We are bridging the gap between vacant luxury assets and the massive, underserved demand from overseas Pakistanis.</p>
+            <h2 class="title-large">The Asset Problem</h2>
+            <p class="body-text">Most developers make money once by selling an apartment. The buyer gets the keys, and the revenue stops. Millions of overseas Pakistanis visit, but their assets remain idle and generate $0 yield.</p>
             <div class="chart-container">
                 <div class="bar" style="height: 40%;" data-height="40%"><span>3%</span><p style="margin-top:210px; font-size:12px;">Standard</p></div>
                 <div class="bar" style="height: 80%;" data-height="80%"><span>12%</span><p style="margin-top:210px; font-size:12px;">Branded</p></div>
@@ -65,14 +51,15 @@
     <section>
         <div class="container">
             <h2 class="title-large">Bagh: Proof of Concept</h2>
-            <p class="body-text">Before One Canal Road, we perfected the model at 'Bagh'. It wasn't just a house; it was a hospitality ecosystem designed for the modern overseas family.</p>
+            <p class="body-text">We perfected the hospitality model at 'Bagh'. It proved that luxury travelers demand a private, managed ecosystem.</p>
             <div class="split-layout" style="margin-top: 3rem;">
-                <div class="image-block"><img src="bagh_house.png" alt="Bagh Exterior"></div>
-                <div class="image-block"><img src="bagh_pool.png" alt="Bagh Indoor Pool"></div>
+                <!-- BAGH JPG IMAGES -->
+                <div class="image-block"><img src="SnapInsta.to_670776365_17885950977497784_1569665429548335837_n.jpg" alt="Bagh Exterior"></div>
+                <div class="image-block"><img src="SnapInsta.to_670760900_17885950905497784_9033382022902896840_n.jpg" alt="Bagh Indoor Pool"></div>
             </div>
             <ul class="body-text" style="margin-top: 3rem; list-style: none;">
                 <li>✓ Private Indoor Climate-Controlled Pool</li>
-                <li>✓ Concierge-level Housekeeping</li>
+                <li>✓ Concierge-level Housekeeping & Support</li>
                 <li>✓ High-speed Connectivity & Workspaces</li>
                 <li>✓ Total Privacy for Diaspora Families</li>
             </ul>
@@ -80,10 +67,20 @@
     </section>
 
     <!-- Revenue Streams -->
-    <section style="background-color: #0a110e;">
+    <section>
         <div class="container">
             <h2 class="title-large">Revenue Streams</h2>
-            <p class="body-text">We create value through setup margins, recurring management fees, and staff utilization.</p>
+            <p class="body-text"><strong>1. Setup Margins:</strong> Every unit requires furniture, electronics, and professional photography. We split this margin with owners.</p>
+            <p class="body-text"><strong>2. Management Fees:</strong> We charge a management fee (25%) on recurring revenue, turning units into income-generating assets.</p>
+            <p class="body-text"><strong>3. Staff Utilization:</strong> By leveraging existing building staff (housekeeping/security), we subsidize building operations while maintaining high service levels.</p>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section>
+        <div class="container">
+            <h2 class="title-large">Our Strategic Role</h2>
+            <p class="body-text">We are building <strong>One Homes Collection</strong>, powered by Expat Stays. We provide the management, marketing, and zero-cost customer acquisition, while One Homes maintains the high-end brand identity and investor relations.</p>
         </div>
     </section>
 
@@ -93,7 +90,7 @@
         <div class="gradient-overlay"></div>
         <div class="container" style="text-align: center;">
             <h2 class="title-large" style="color: var(--accent-gold);">One Homes Collection.</h2>
-            <p class="body-text">Powered by Expat Stays.</p>
+            <p class="body-text">A smarter way to own. A better way to stay. A new way to grow.</p>
         </div>
     </section>
 
@@ -101,9 +98,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
-                    document.querySelectorAll('.bar').forEach(bar => {
-                        bar.style.height = bar.getAttribute('data-height');
-                    });
+                    document.querySelectorAll('.bar').forEach(bar => bar.style.height = bar.getAttribute('data-height'));
                 }
             });
         }, { threshold: 0.5 });
