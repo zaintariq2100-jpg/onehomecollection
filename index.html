@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Homes Collection - Branded Residence</title>
+    <title>One Homes Collection - Branded Residence Presentation</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap');
 
         :root {
             --bg-dark-green: #040806;
             --accent-gold: #D4AF37;
             --text-main: #e8ecea;
+            --text-muted: #a4b3ac;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,88 +20,94 @@
         h1, h2 { font-family: 'Cinzel', serif; color: #ffffff; }
         section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 10vh 5vw; position: relative; }
         
-        .container { max-width: 1100px; width: 100%; position: relative; z-index: 5; }
-        .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 0; }
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(4,8,6,0.3) 0%, rgba(4,8,6,0.95) 100%); z-index: 1; }
+        .container { max-width: 1000px; width: 100%; position: relative; z-index: 2; }
+        .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 0; }
+        .gradient-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(4,8,6,0.3) 0%, rgba(4,8,6,0.95) 100%); z-index: 1; }
 
-        .title-large { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem; }
-        .body-text { font-size: 1.1rem; color: #a4b3ac; max-width: 650px; margin-bottom: 1.5rem; }
-        .gold-line { width: 60px; height: 1px; background-color: var(--accent-gold); margin-bottom: 2rem; }
+        .title-large { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+        .body-text { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent-gold); margin-bottom: 1.5rem; }
         
-        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .image-block img { width: 100%; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        /* Bar Chart */
+        .chart-container { display: flex; align-items: flex-end; gap: 20px; height: 200px; margin: 40px 0; border-bottom: 2px solid #333; }
+        .bar { width: 80px; background: var(--accent-gold); position: relative; transition: height 1.5s ease-out; height: 0; }
+        .bar span { position: absolute; top: -30px; width: 100%; text-align: center; color: white; font-weight: 600; }
 
-        @media (max-width: 900px) { .split-layout { grid-template-columns: 1fr; text-align: center; } }
+        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .image-block img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
+    <!-- Hero -->
     <section>
-        <img src="2.png" alt="Background" class="bg-image">
-        <div class="overlay"></div>
+        <img src="2.png" class="bg-image" alt="Background">
+        <div class="gradient-overlay"></div>
         <div class="container" style="text-align: center;">
-            <div class="gold-line" style="margin: 0 auto 2rem auto;"></div>
-            <h1 class="title-large">Here’s why One Canal Road shouldn’t allow Airbnb.</h1>
-            <p class="body-text" style="margin: 2rem auto;">Because Airbnb is too small.</p>
+            <h1 class="title-large">Why One Canal Road shouldn't allow Airbnb.</h1>
+            <p class="body-text" style="max-width: 700px; margin: 2rem auto;">Because a standard rental model fails to capture the true luxury premium of the diaspora market.</p>
         </div>
     </section>
 
+    <!-- Market Opportunity -->
     <section>
-        <div class="container" style="text-align: center;">
-            <h2 class="title-large">Most developers make money once.</h2>
-            <div class="gold-line" style="margin: 1.5rem auto;"></div>
-            <p class="body-text" style="margin: 0 auto;">But what if every apartment sold became a recurring revenue asset?</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="bg-wrapper"><img src="5.png" alt="Architecture" class="bg-image" loading="lazy"></div>
-        <div class="container split-layout">
-            <div>
-                <h2 class="title-large">The hard part is done.</h2>
-                <p class="body-text">Location, architecture, and brand are set. The missing piece is a hospitality platform.</p>
+        <div class="container">
+            <h2 class="title-large">Market Opportunity</h2>
+            <p class="body-text">We are bridging the gap between vacant luxury assets and the massive, underserved demand from overseas Pakistanis.</p>
+            <div class="chart-container">
+                <div class="bar" style="height: 40%;" data-height="40%"><span>3%</span><p style="margin-top:210px; font-size:12px;">Standard</p></div>
+                <div class="bar" style="height: 80%;" data-height="80%"><span>12%</span><p style="margin-top:210px; font-size:12px;">Branded</p></div>
             </div>
         </div>
     </section>
 
+    <!-- Bagh Section -->
     <section>
-        <div class="container split-layout">
-            <div class="image-block"><img src="6.png" alt="Amenities" loading="lazy"></div>
-            <div>
-                <h2 class="title-large">A new category.</h2>
-                <p class="body-text">One Canal Road offers more space, full kitchens, and premium privacy beyond standard hotels.</p>
+        <div class="container">
+            <h2 class="title-large">Bagh: Proof of Concept</h2>
+            <p class="body-text">Before One Canal Road, we perfected the model at 'Bagh'. It wasn't just a house; it was a hospitality ecosystem designed for the modern overseas family.</p>
+            <div class="split-layout" style="margin-top: 3rem;">
+                <div class="image-block"><img src="bagh_house.png" alt="Bagh Exterior"></div>
+                <div class="image-block"><img src="bagh_pool.png" alt="Bagh Indoor Pool"></div>
             </div>
+            <ul class="body-text" style="margin-top: 3rem; list-style: none;">
+                <li>✓ Private Indoor Climate-Controlled Pool</li>
+                <li>✓ Concierge-level Housekeeping</li>
+                <li>✓ High-speed Connectivity & Workspaces</li>
+                <li>✓ Total Privacy for Diaspora Families</li>
+            </ul>
         </div>
     </section>
 
-    <section>
-        <div class="container split-layout">
-            <div>
-                <h2 class="title-large">Staff Utilisation.</h2>
-                <p class="body-text">Leverage existing teams to offset costs and subsidize the building’s ecosystem.</p>
-            </div>
-            <div class="image-block"><img src="1.png" alt="Infrastructure" loading="lazy"></div>
+    <!-- Revenue Streams -->
+    <section style="background-color: #0a110e;">
+        <div class="container">
+            <h2 class="title-large">Revenue Streams</h2>
+            <p class="body-text">We create value through setup margins, recurring management fees, and staff utilization.</p>
         </div>
     </section>
 
+    <!-- Closing -->
     <section>
-        <div class="container split-layout">
-            <div class="image-block"><img src="7.png" alt="Architecture" loading="lazy"></div>
-            <div>
-                <h2 class="title-large">Bagh Proof of Concept.</h2>
-                <p class="body-text">Proven demand for luxury private experiences among overseas Pakistanis.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <img src="2.png" alt="Aerial" class="bg-image" loading="lazy">
-        <div class="overlay"></div>
+        <img src="2.png" class="bg-image" alt="Background">
+        <div class="gradient-overlay"></div>
         <div class="container" style="text-align: center;">
             <h2 class="title-large" style="color: var(--accent-gold);">One Homes Collection.</h2>
-            <p class="body-text" style="margin: 1rem auto;">Powered by Expat Stays.</p>
+            <p class="body-text">Powered by Expat Stays.</p>
         </div>
     </section>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    document.querySelectorAll('.bar').forEach(bar => {
+                        bar.style.height = bar.getAttribute('data-height');
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(document.querySelector('.chart-container'));
+    </script>
 </body>
 </html>
