@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Homes Collection</title>
-    
-    <!-- Premium Google Fonts for an editorial feel -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <title>One Homes Collection - Pitch Deck</title>
     <style>
-        /* 1. Global Reset & Theme Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-color: #0a110e; /* Deep dark green/black */
+            --text-main: #f0f2eb; /* Off-white / Sage */
+            --accent-gold: #c5a059; /* Dull gold */
+            --accent-dark: #15241d;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,70 +21,389 @@
         }
 
         body {
-            background-color: #0B1D17; /* Deep Forest Green */
-            color: #D4AF37;           /* Dull Gold */
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* 2. Full-Screen Presentation Sections */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        /* Section Layout */
         section {
-            width: 100%;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            justify-content: center;
+            padding: 10vh 10vw;
+            position: relative;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
+            z-index: 2;
         }
 
-        /* 3. Editorial Typography */
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            letter-spacing: 4px;
+        /* Typography */
+        .title-large {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
         }
 
         .subtitle {
-            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
-            font-weight: 300;
-            color: #A3B19B; /* Muted Sage Grey */
-            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
         }
 
-        p {
-            font-size: 1.1rem;
+        .body-text {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
             font-weight: 300;
-            color: #F5F5F5;
-            max-width: 650px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            color: #caced0;
         }
+
+        .list-items {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .list-items li {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .list-items li::before {
+            content: "•";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Number Counter Styles */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            padding-top: 4rem;
+        }
+
+        .stat-box h3 {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Image Backgrounds & Layouts */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .image-block img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 900px) {
+            .split-layout { grid-template-columns: 1fr; gap: 3rem; }
+            section { padding: 10vh 5vw; }
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+
     </style>
 </head>
 <body>
 
-    <!-- Slide 1: The Hero Title -->
+    <!-- Slide 1: The Hook (Hero) -->
     <section id="hero">
-        <div class="container">
-            <h1>One Homes Collection</h1>
-            <div class="subtitle">Branded Residences • One Canal Road, Lahore</div>
-            <p>A paradigm shift from traditional, low-yield real estate to a professionally managed, high-yield luxury hospitality model.</p>
+        <img src="DJI_20260521134438_0025_D.jpg" alt="One Canal Road" class="bg-image">
+        <div class="container fade-up">
+            <div class="subtitle">One Homes Collection</div>
+            <h1 class="title-large">Here’s why One Canal Road shouldn’t allow Airbnb.</h1>
+            <p class="body-text delay-1 fade-up" style="margin-top: 4rem;">(Pause)</p>
+            <p class="body-text delay-2 fade-up">Because Airbnb is too small.</p>
         </div>
     </section>
 
+    <!-- Slide 2: The Pitch Transition -->
+    <section>
+        <div class="container">
+            <h2 class="title-large fade-up">Most developers make money once.</h2>
+            <div class="fade-up delay-1">
+                <p class="body-text">They sell an apartment. The buyer gets the keys. And the revenue stops.</p>
+                <p class="body-text" style="color: var(--accent-gold); margin-top: 2rem;">But what if every apartment sold became a recurring revenue asset for One Homes?</p>
+                <p class="body-text">What if One Canal Road became Pakistan’s next luxury branded residence?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: The Big Idea -->
+    <section>
+        <div class="container split-layout">
+            <div class="fade-up">
+                <div class="subtitle">The Big Idea</div>
+                <h2 class="title-large">The hard part is already done.</h2>
+                <p class="body-text">Location. Architecture. Amenities. Brand. Investors. The only thing missing is a hospitality platform.</p>
+                <p class="body-text" style="color: white; margin-top: 1.5rem;"><strong>One Homes Collection.</strong> Powered by Expat Stays.</p>
+                <p class="body-text">One Homes remains the front-facing brand. Expat Stays manages the operations behind the scenes.</p>
+            </div>
+            <div class="image-block fade-up delay-1">
+                <img src="DJI_20260521191509_0058_D.jpg" alt="Building Overview">
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Market Data -->
+    <section style="background-color: var(--accent-dark);">
+        <div class="container">
+            <div class="subtitle fade-up">Why The Market Exists</div>
+            <h2 class="title-large fade-up delay-1">The Idle Asset Problem</h2>
+            <p class="body-text fade-up delay-2">Millions of overseas Pakistanis visit every year. Many own property here. But most apartments remain empty for the majority of the year, generating no income.</p>
+            
+            <div class="stat-grid fade-up delay-3">
+                <div class="stat-box">
+                    <h3><span class="counter" data-target="9000000">0</span>+</h3>
+                    <p>Overseas Pakistanis</p>
+                </div>
+                <div class="stat-box">
+                    <h3>$0</h3>
+                    <p>Current Yield of Vacant Assets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Differentiator -->
+    <section>
+        <div class="container split-layout">
+            <div class="image-block fade-up">
+                <img src="DJI_20260521191707_0061_D2.jpg" alt="Building Close up">
+            </div>
+            <div class="fade-up delay-1">
+                <div class="subtitle">The Differentiator</div>
+                <h2 class="title-large">Not another hotel. A new category.</h2>
+                <p class="body-text">Guests already pay $100–$180/night at PC Hotel, The Nishat, Avari, and The Fred. But they are still just hotel rooms.</p>
+                <ul class="list-items">
+                    <li>More space and privacy</li>
+                    <li>Full kitchens and living areas</li>
+                    <li>Multiple bedrooms for diaspora families</li>
+                    <li>Amenities exceeding luxury hotels</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Revenue Stream 1 -->
+    <section>
+        <div class="container">
+            <div class="subtitle fade-up">Revenue Stream 1</div>
+            <h2 class="title-large fade-up delay-1">Apartment Setup Margins</h2>
+            <p class="body-text fade-up delay-2">Every apartment entering the program needs setup (furniture, electronics, linens, photography). This creates revenue before the first booking.</p>
+            
+            <div class="stat-grid fade-up delay-3">
+                <div class="stat-box">
+                    <h3>$<span class="counter" data-target="10000">0</span></h3>
+                    <p>Setup Cost</p>
+                </div>
+                <div class="stat-box">
+                    <h3>$<span class="counter" data-target="12000">0</span></h3>
+                    <p>Owner Invoice</p>
+                </div>
+                <div class="stat-box">
+                    <h3 style="color: #fff;">$<span class="counter" data-target="2000">0</span></h3>
+                    <p style="color: var(--accent-gold);">Margin Created (Shared 60/40)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Revenue Stream 2 -->
+    <section style="background-color: var(--accent-dark);">
+        <div class="container">
+            <div class="subtitle fade-up">Revenue Stream 2</div>
+            <h2 class="title-large fade-up delay-1">Recurring Management Fees</h2>
+            <p class="body-text fade-up delay-2">One Homes earns recurring revenue from apartments it has already sold. Imagine this across studios, penthouses, and multi-bedroom units.</p>
+            
+            <div class="stat-grid fade-up delay-3">
+                <div class="stat-box">
+                    <h3>$<span class="counter" data-target="12000">0</span></h3>
+                    <p>Example Annual Revenue</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="counter" data-target="25">0</span>%</h3>
+                    <p>Management Fee</p>
+                </div>
+                <div class="stat-box">
+                    <h3 style="color: #fff;">$<span class="counter" data-target="3000">0</span></h3>
+                    <p style="color: var(--accent-gold);">Annual Fee Per Unit (Shared 60/40)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Revenue Stream 3 -->
+    <section>
+        <div class="container split-layout">
+            <div class="fade-up">
+                <div class="subtitle">Revenue Stream 3</div>
+                <h2 class="title-large">Staff Utilisation</h2>
+                <p class="body-text">One Homes already employs managers, housekeepers, and support teams. Instead of creating duplicate teams, we utilize and pay for the existing infrastructure when guests require support.</p>
+                <p class="body-text" style="color: var(--accent-gold); margin-top: 1rem;">This offsets staffing costs and heavily subsidizes the building’s operational ecosystem.</p>
+            </div>
+            <div class="image-block fade-up delay-1">
+                <img src="DJI_20260521133709_0011_D.jpg" alt="Building Area">
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Revenue Streams 4 & 5 combined -->
+    <section>
+        <div class="container">
+            <div class="subtitle fade-up">Revenue Streams 4 & 5</div>
+            <h2 class="title-large fade-up delay-1">Future Sales & Investor Retention</h2>
+            <p class="body-text fade-up delay-2">Every guest becomes a potential buyer. Every apartment becomes a showroom. When guests experience the lifestyle, they ask: "Can I buy one?"</p>
+            
+            <div class="stat-grid fade-up delay-3">
+                <div class="stat-box">
+                    <h3><span class="counter" data-target="3">0</span>%</h3>
+                    <p>Traditional Rental Return</p>
+                </div>
+                <div class="stat-box">
+                    <h3 style="color: #fff;"><span class="counter" data-target="12">0</span>%</h3>
+                    <p style="color: var(--accent-gold);">Branded Residence Return</p>
+                </div>
+                <div class="stat-box">
+                    <h3 style="color: #fff;">$<span class="counter" data-target="30000">0</span></h3>
+                    <p>Annual Return on $250k Asset</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Why Me / Bagh -->
+    <section style="background-color: var(--accent-dark);">
+        <div class="container split-layout">
+            <div class="image-block fade-up">
+                <img src="DJI_20260521191053_0041_D.jpg" alt="Bagh Property View">
+            </div>
+            <div class="fade-up delay-1">
+                <div class="subtitle">Why Me & The Bagh Proof</div>
+                <h2 class="title-large">Direct Market Access</h2>
+                <p class="body-text">For 6 years, I’ve worked exclusively with overseas Pakistanis. Managing 'Bagh', a luxury hospitality property, proved the massive demand for premium, private experiences.</p>
+                <div class="stat-grid" style="margin-top: 2rem; padding-top: 2rem;">
+                    <div class="stat-box">
+                        <h3><span class="counter" data-target="60000">0</span>+</h3>
+                        <p style="font-size: 0.9rem;">Follower Community (Overseas Demographics)</p>
+                    </div>
+                </div>
+                <p class="body-text" style="margin-top: 2rem; font-size: 1rem;">I bring operations, marketing, and zero-cost customer acquisition from day one.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Closing -->
+    <section id="closing">
+        <img src="DJI_20260521134438_0025_D.jpg" alt="One Canal Road Background" class="bg-image" style="opacity: 0.15;">
+        <div class="container fade-up" style="text-align: center;">
+            <h2 class="title-large">The opportunity isn’t to create another rental program.</h2>
+            <p class="body-text fade-up delay-1" style="margin: 2rem auto;">The opportunity is to create Pakistan’s leading branded residence platform.</p>
+            <h2 class="title-large fade-up delay-2" style="color: var(--accent-gold); margin-top: 4rem;">One Homes Collection.</h2>
+            <div class="subtitle fade-up delay-3">Powered by Expat Stays.</div>
+            
+            <p class="body-text fade-up delay-3" style="margin: 3rem auto 0 auto; max-width: 600px;">A smarter way to own.<br>A better way to stay.<br>And a new way for One Homes to grow.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Scroll Fade Animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observerOptions = { threshold: 0.2 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger number counters if present in this section
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('counted')) {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // 2 seconds
+                            const increment = target / (duration / 16); 
+                            let current = 0;
+
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current).toLocaleString();
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target.toLocaleString();
+                                    counter.classList.add('counted');
+                                }
+                            };
+                            updateCounter();
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
