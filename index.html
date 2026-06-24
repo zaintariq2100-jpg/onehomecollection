@@ -17,6 +17,7 @@
             --off-white: #e8ecea;
             --muted: #8fa099;
             --border: rgba(201,168,76,0.15);
+            --dark-green: #0d2e1a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* ── Typography ─────────────────────────── */
+        /* ── Typography ───────────��─────────────── */
         .serif { font-family: 'Cinzel', serif; }
 
         .eyebrow {
@@ -134,6 +135,16 @@
             letter-spacing: 2px;
             color: var(--gold);
             text-transform: uppercase;
+        }
+        .nav-logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-logo {
+            height: 32px;
+            display: flex;
+            align-items: center;
         }
 
         /* ── HERO ────────────────────────────────── */
@@ -243,6 +254,195 @@
             line-height: 1.5;
         }
 
+        /* ── WHY EXPAT STAYS ─────────────────────── */
+        #why-expat {
+            padding: 10vh 0;
+            background: var(--panel);
+        }
+        .why-expat-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .stat-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--white);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        .stat-card .description {
+            font-size: 0.7rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .expat-story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .story-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        .story-box h3 {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .story-box p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── OPERATING STANDARDS ──────────────────── */
+        #operating-standards {
+            padding: 10vh 0;
+            background: var(--panel-light);
+        }
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .standard-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        .standard-item h4 {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .standard-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--forest);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .standard-item p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── AMENITIES ───────────────────────────── */
+        #amenities {
+            padding: 10vh 0;
+            background: var(--panel);
+        }
+        .amenity-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .amenity-item {
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+            text-align: center;
+        }
+        .amenity-item .icon-num {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin: 0 auto 1rem;
+        }
+        .amenity-item h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        .amenity-item p {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        /* ── DIRECTOR VIEW ───────────────────────── */
+        #director-view {
+            padding: 10vh 0;
+            background: var(--panel);
+        }
+        .director-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .director-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+        .director-box h3 {
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .director-box ul {
+            list-style: none;
+        }
+        .director-box li {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+        .director-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
         /* ── MARKET ──────────────────────────────── */
         #market {
             padding: 10vh 0;
@@ -278,55 +478,6 @@
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--muted);
-        }
-
-        /* ── AMENITIES ───────────────────────────── */
-        #amenities {
-            padding: 10vh 0;
-            background: var(--panel-light);
-        }
-        .amenity-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-        .amenity-item {
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 3px;
-            background: rgba(255,255,255,0.02);
-        }
-        .amenity-item .icon-num {
-            width: 28px; height: 28px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--forest);
-            margin-bottom: 0.8rem;
-        }
-        .amenity-item h4 {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--white);
-            margin-bottom: 0.3rem;
-        }
-        .amenity-item p {
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
-        .amenity-callout {
-            margin-top: 2.5rem;
-            background: rgba(201,168,76,0.08);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--off-white);
-            line-height: 1.6;
         }
 
         /* ── PRICING TABLE ───────────────────────── */
@@ -406,44 +557,6 @@
         #economics {
             padding: 10vh 0;
             background: var(--panel);
-        }
-        .econ-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 3rem;
-        }
-        .econ-cell {
-            background: var(--panel);
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-        }
-        .econ-cell .type {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 1rem;
-        }
-        .econ-cell .big {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 0.3rem;
-        }
-        .econ-cell .roi-val {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-        }
-        .econ-cell .sub {
-            font-size: 0.7rem;
-            color: var(--muted);
-            margin-top: 0.3rem;
         }
         .return-logic {
             display: flex;
@@ -548,71 +661,6 @@
             text-align: right;
         }
 
-        /* ── RAMP ────────────────────────────────── */
-        #ramp {
-            padding: 10vh 0;
-        }
-        .ramp-chart {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-end;
-            height: 200px;
-            margin-top: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .ramp-bar-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 0.5rem;
-        }
-        .ramp-bar {
-            width: 100%;
-            border-radius: 2px 2px 0 0;
-            position: relative;
-        }
-        .ramp-bar .ramp-val {
-            position: absolute;
-            top: -1.6rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            color: var(--gold);
-        }
-        .ramp-bar-label {
-            font-size: 0.7rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
-        .ramp-controls {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-        .ramp-control-item {
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 1.2rem;
-        }
-        .ramp-control-item h5 {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--off-white);
-            margin-bottom: 0.4rem;
-        }
-        .ramp-control-item p {
-            font-size: 0.75rem;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
         /* ── PILOT ───────────────────────────────── */
         #pilot {
             padding: 10vh 0;
@@ -652,32 +700,8 @@
         }
         .pilot-step h4 { font-size: 0.8rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
         .pilot-step p { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
-        .kpi-table-wrap {
-            margin-top: 3rem;
-            overflow-x: auto;
-        }
-        .kpi-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .kpi-table th {
-            background: var(--gold);
-            color: var(--forest);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.7rem 1rem;
-            text-align: left;
-        }
-        .kpi-table td {
-            padding: 0.8rem 1rem;
-            font-size: 0.8rem;
-            color: var(--off-white);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .kpi-table td:first-child { color: var(--muted); }
 
-        /* ── GUARANTEE ───────────────────────────── */
+        /* ── GUARANTEE ──���────────────────────────── */
         #guarantee {
             padding: 10vh 0;
         }
@@ -721,16 +745,6 @@
             font-size: 0.7rem;
         }
         .guarantee-box.red li::before { color: #d97070; }
-        .director-note {
-            margin-top: 2rem;
-            background: rgba(201,168,76,0.06);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 1.5rem 2rem;
-            font-size: 0.85rem;
-            color: var(--off-white);
-            line-height: 1.6;
-        }
 
         /* ── BAGH SECTION ────────────────────────── */
         #bagh {
@@ -761,7 +775,6 @@
         .bagh-images img:first-child {
             margin-top: 2rem;
         }
-        /* Bagh logo SVG inline */
         .bagh-logo-mark {
             width: 80px;
             margin-bottom: 1.5rem;
@@ -816,24 +829,27 @@
             .thesis-grid,
             .split,
             .bagh-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .amenity-grid { grid-template-columns: repeat(2, 1fr); }
-            .econ-grid { grid-template-columns: repeat(2, 1fr); }
+            .amenity-grid { grid-template-columns: repeat(3, 1fr); }
+            .stat-cards { grid-template-columns: repeat(2, 1fr); }
             .stat-row { grid-template-columns: repeat(3, 1fr); }
             .pilot-steps { grid-template-columns: 1fr 1fr; }
             .pilot-steps::before { display: none; }
             .guarantee-grid { grid-template-columns: 1fr; }
             .return-logic { flex-direction: column; }
-            .ramp-controls { grid-template-columns: 1fr; }
             .adoption-row { grid-template-columns: 80px 1fr auto; }
             .adoption-row .units { display: none; }
+            .standards-grid { grid-template-columns: repeat(2, 1fr); }
+            .expat-story-grid { grid-template-columns: 1fr 1fr; }
+            .director-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
-            .thesis-cards { grid-template-columns: 1fr; }
-            .amenity-grid { grid-template-columns: 1fr; }
-            .econ-grid { grid-template-columns: 1fr; }
+            .amenity-grid { grid-template-columns: 1fr 1fr; }
             .stat-row { grid-template-columns: 1fr 1fr; }
             .bagh-images { grid-template-columns: 1fr; }
             .bagh-images img:first-child { margin-top: 0; }
+            .stat-cards { grid-template-columns: 1fr; }
+            .standards-grid { grid-template-columns: 1fr; }
+            .expat-story-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -845,7 +861,10 @@
         <div class="nav-brand">One Homes Collection</div>
         <div class="nav-sub">Powered by Expat Stays</div>
     </div>
-    <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Confidential</div>
+    <div class="nav-logos">
+        <img src="SnapInsta.to_670760900_17885950905497784_9033382022902896840_n.jpg" alt="One Homes" style="height: 24px;">
+        <img src="8.png" alt="Expat Stays" style="height: 24px;">
+    </div>
 </nav>
 
 
@@ -861,9 +880,9 @@
             <div class="hairline" style="margin:0 auto 2rem;"></div>
         </div>
         <h1 class="hero-headline fade-up delay-1">
-            Here's why One Canal Road shouldn't allow Airbnb.
+            Pakistan's Leading Branded Residence Platform
         </h1>
-        <p class="hero-sub fade-up delay-2">Because Airbnb is too small.</p>
+        <p class="hero-sub fade-up delay-2">Luxury hospitality meets residential excellence.</p>
     </div>
     <div class="scroll-hint">Scroll</div>
 </section>
@@ -914,6 +933,196 @@
 </section>
 
 
+<!-- ── WHY EXPAT STAYS ─────────────────────── -->
+<section id="why-expat">
+    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
+        <div class="why-expat-intro fade-up">
+            <div class="eyebrow">Why Expat Stays</div>
+            <div class="hairline" style="margin:0 auto 2rem;"></div>
+            <h2 class="display">Why Expat Stays is the right operating partner</h2>
+            <p class="body-copy" style="margin-top:1.5rem; margin-left: auto; margin-right: auto;">The investor wants an operator who understands overseas Pakistanis, premium property expectations and hands-on service delivery.</p>
+        </div>
+
+        <div class="stat-cards fade-up delay-1">
+            <div class="stat-card">
+                <div class="number">21+</div>
+                <div class="label">Years Local Experience</div>
+                <div class="description">Deep knowledge in Pakistan</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">6+</div>
+                <div class="label">Years Overseas Focus</div>
+                <div class="description">Serving expat community needs</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">60,000+</div>
+                <div class="label">Audience Reach</div>
+                <div class="description">Across multiple platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">Direct</div>
+                <div class="label">Management Model</div>
+                <div class="description">We do more than list</div>
+            </div>
+        </div>
+
+        <div class="expat-story-grid fade-up delay-2">
+            <div class="story-box">
+                <h3>Our Story</h3>
+                <p>Expat Stays was built by people who understand both sides of the overseas Pakistani experience — living abroad, visiting Pakistan frequently and eventually returning home. We built the service because hotels were impersonal. Airbnb was inconsistent. We prioritise honest representation, reliable standards, direct support and accountability — the exact things overseas investors care about most.</p>
+            </div>
+            <div class="story-box">
+                <h3>Why We Are Different</h3>
+                <p>We do not simply list properties on a marketplace. Every property is owned or directly managed, personally inspected and quality controlled by us. We prioritise honest representation, reliable standards, direct support and accountability — the exact things overseas investors care about most.</p>
+            </div>
+            <div class="story-box">
+                <h3>Proof Points</h3>
+                <p>• Managing luxury hospitality inventory. • Validating willingness to pay for privacy and quality. • Deep experience with overseas Pakistani travelers and long-stay customers. • Relevant exposure to UAE/UK market standards and investor expectations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── OPERATING STANDARDS ──────────────────── -->
+<section id="operating-standards">
+    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
+        <div class="fade-up">
+            <div class="eyebrow">Operating Standards</div>
+            <div class="hairline"></div>
+            <h2 class="display">How Expat Stays protects quality and pricing integrity</h2>
+            <p class="body-copy" style="margin-top:1.5rem;">This approach is intentionally hands-on. The service is built around trust, personal accountability and standards that support premium pricing.</p>
+        </div>
+
+        <div class="standards-grid fade-up delay-1">
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> We do not list. We manage.</h4>
+                <p>Every unit is directly managed, not simply advertised. That means we control quality from start to finish.</p>
+            </div>
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> Pre-listing Inspection</h4>
+                <p>Utilities, cleanliness, neighborhood safety, internet reliability, appliance readiness and guest comfort are checked before launch.</p>
+            </div>
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> Ongoing Quality Checks</h4>
+                <p>Cleaning, repairs, upgrades and presentation are maintained between guests so the product does not decay after launch.</p>
+            </div>
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> Direct Support</h4>
+                <p>Issues are handled by real people who know the property. No outsourced support and no marketplace-style blame shifting.</p>
+            </div>
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> Quality Over Scale</h4>
+                <p>We would rather manage fewer properties properly than chase uncontrolled growth. Quality discipline is essential for investor trust.</p>
+            </div>
+            <div class="standard-item">
+                <h4><span class="standard-icon">✓</span> Trust-First Bookings</h4>
+                <p>Our business is built around relationships with overseas Pakistanis. Direct communication, transparency and responsiveness are core to the model.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── AMENITIES ─────────────────────────── -->
+<section id="amenities">
+    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
+        <div class="fade-up">
+            <div class="eyebrow">One Canal Road Amenities</div>
+            <div class="hairline"></div>
+            <h2 class="display">Hotel-grade amenities.<br>Apartment-grade privacy.</h2>
+        </div>
+
+        <div class="amenity-grid fade-up delay-1">
+            <div class="amenity-item">
+                <div class="icon-num">1</div>
+                <h4>Coffee Shop</h4>
+                <p>Lifestyle convenience</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">2</div>
+                <h4>24-Hour Concierge</h4>
+                <p>Service trust</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">3</div>
+                <h4>International Convenience Store</h4>
+                <p>Expat essentials</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">4</div>
+                <h4>Sky Pool & Lounge</h4>
+                <p>Hotel-like leisure</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">5</div>
+                <h4>Kids' Club</h4>
+                <p>Family amenity</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">6</div>
+                <h4>Full Spa</h4>
+                <p>Wellness positioning</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">7</div>
+                <h4>Residents' Theatre</h4>
+                <p>Experiential amenity</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">8</div>
+                <h4>State-of-the-art Fitness</h4>
+                <p>Corporate & family fit</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">9</div>
+                <h4>24-Hour Security & CCTV</h4>
+                <p>Family confidence</p>
+            </div>
+            <div class="amenity-item">
+                <div class="icon-num">10</div>
+                <h4>Central AC</h4>
+                <p>Luxury baseline</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── DIRECTOR VIEW ───────────────────────── -->
+<section id="director-view">
+    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
+        <div class="fade-up">
+            <div class="eyebrow">Director View</div>
+            <div class="hairline"></div>
+            <h2 class="display">Why One Homes should pursue this platform now</h2>
+            <p class="body-copy" style="margin-top:1.5rem;">This is not another Airbnb program. It is a branded residence strategy designed to unlock recurring revenue, investor confidence and long-term brand equity.</p>
+        </div>
+
+        <div class="director-grid fade-up delay-1">
+            <div class="director-box">
+                <h3>Core Investment Case</h3>
+                <ul>
+                    <li>One Canal Road has the amenity base to compete with luxury hotels, not just apartments.</li>
+                    <li>Existing Lahore apartment baseline proves demand, but premium branded strategy is untapped.</li>
+                    <li>A 10% annual owner return is feasible pricing — hotel-grade replacement logic: 2 hotel rooms = 1 two-bed residence.</li>
+                    <li>Beyond owner ROI, One Homes gains subscription-based management fee participation, staff utilisation, future sales leads and stronger investor retention.</li>
+                </ul>
+            </div>
+            <div class="director-box">
+                <h3>Recommended Next Steps</h3>
+                <ul>
+                    <li>Define a launch-phase inventory set with strongest family appeal and amenity adjacency.</li>
+                    <li>Lock a premium furnishing specification so the physical unit justifies the target ADR ladder from day one.</li>
+                    <li>Approve a price ladder, inventory thresholds, occupancy targets and management fee participation.</li>
+                    <li>Build the One Homes Collection as branded residence division — not a generic rental program — so the product strengthens both current revenue and future project sales.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- ── MARKET ───────────────────────────── -->
 <section id="market">
     <div class="bg-cover">
@@ -953,65 +1162,6 @@
             </div>
         </div>
         <div style="padding: 4rem 0 10vh;"></div>
-    </div>
-</section>
-
-
-<!-- ── AMENITIES ─────────────────────────── -->
-<section id="amenities">
-    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
-        <div class="fade-up">
-            <div class="eyebrow">Why One Canal Road Can Outprice Airbnb</div>
-            <div class="hairline"></div>
-            <h2 class="display">Hotel-grade amenities.<br>Apartment-grade privacy.</h2>
-        </div>
-
-        <div class="amenity-grid fade-up delay-1">
-            <div class="amenity-item">
-                <div class="icon-num">1</div>
-                <h4>Sky Pool &amp; Lounge</h4>
-                <p>Hotel-like leisure anchor</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">2</div>
-                <h4>Full Spa / Sauna / Steam</h4>
-                <p>Wellness positioning</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">3</div>
-                <h4>Residents' Theatre</h4>
-                <p>Experiential amenity</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">4</div>
-                <h4>Fitness Center</h4>
-                <p>Corporate + family guest fit</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">5</div>
-                <h4>24-Hour Concierge</h4>
-                <p>Service trust</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">6</div>
-                <h4>Coffee Shop / Café</h4>
-                <p>Lifestyle convenience</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">7</div>
-                <h4>Central AC</h4>
-                <p>Luxury comfort baseline</p>
-            </div>
-            <div class="amenity-item">
-                <div class="icon-num">8</div>
-                <h4>Security &amp; CCTV</h4>
-                <p>Overseas-family confidence</p>
-            </div>
-        </div>
-
-        <div class="amenity-callout fade-up delay-2">
-            The selling point is not "an Airbnb listing." It is a <strong style="color:var(--white);">branded residence</strong>: hotel-grade amenities + apartment privacy + One Homes trust + Expat Stays operations.
-        </div>
     </div>
 </section>
 
@@ -1143,24 +1293,6 @@
                     <td class="gold">$30.8K</td>
                     <td class="gold">10.7%</td>
                     <td class="meets">✓ Meets 10%</td>
-                </tr>
-                <tr>
-                    <td>Sky Villa 3 Bed</td>
-                    <td>$450</td>
-                    <td>50%</td>
-                    <td>$82.1K</td>
-                    <td>$39.4K</td>
-                    <td>8.9%</td>
-                    <td class="review">⚠ Near / Review</td>
-                </tr>
-                <tr>
-                    <td>Sky Villa 4 Bed</td>
-                    <td>$800</td>
-                    <td>45%</td>
-                    <td>$131.4K</td>
-                    <td>$63.1K</td>
-                    <td>7.3%</td>
-                    <td class="bespoke">Bespoke</td>
                 </tr>
             </tbody>
         </table>
@@ -1302,60 +1434,6 @@
 </section>
 
 
-<!-- ── RAMP PLAN ──────────────────────────── -->
-<section id="ramp" style="background:var(--panel-light);">
-    <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
-        <div class="fade-up">
-            <div class="eyebrow">Occupancy Ramp &amp; Stabilisation</div>
-            <div class="hairline"></div>
-            <h2 class="display">10% return is measured against<br>a stabilisation plan.</h2>
-        </div>
-
-        <div class="ramp-chart fade-up delay-1">
-            <div class="ramp-bar-group">
-                <div class="ramp-bar" style="height:35%; background:var(--gold); opacity:0.5;">
-                    <span class="ramp-val">35%</span>
-                </div>
-                <div class="ramp-bar-label">M1–3</div>
-            </div>
-            <div class="ramp-bar-group">
-                <div class="ramp-bar" style="height:55%; background:var(--gold); opacity:0.65;">
-                    <span class="ramp-val">55%</span>
-                </div>
-                <div class="ramp-bar-label">M4–6</div>
-            </div>
-            <div class="ramp-bar-group">
-                <div class="ramp-bar" style="height:65%; background:var(--gold); opacity:0.85;">
-                    <span class="ramp-val">65%</span>
-                </div>
-                <div class="ramp-bar-label">M7–12</div>
-            </div>
-            <div class="ramp-bar-group">
-                <div class="ramp-bar" style="height:70%; background:var(--gold);">
-                    <span class="ramp-val">70%</span>
-                </div>
-                <div class="ramp-bar-label">Year 2</div>
-            </div>
-        </div>
-
-        <div class="ramp-controls fade-up delay-2">
-            <div class="ramp-control-item">
-                <h5>Availability Requirement</h5>
-                <p>Minimum 280 available nights per year unless owner-use is pre-approved.</p>
-            </div>
-            <div class="ramp-control-item">
-                <h5>Operational Control</h5>
-                <p>Expat Stays controls pricing, calendar, guest messaging, listings and service standards.</p>
-            </div>
-            <div class="ramp-control-item">
-                <h5>Standards &amp; Guarantee</h5>
-                <p>Professional furnishing mandatory. Dynamic pricing by season, events and expat travel peaks. Return guarantee is annual and reserve-backed.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <!-- ── PILOT PLAN ─────────────────────────── -->
 <section id="pilot">
     <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
@@ -1392,56 +1470,12 @@
                 <p>Open program to more owners after return proof and operational stability.</p>
             </div>
         </div>
-
-        <div class="kpi-table-wrap fade-up delay-2" style="margin-top:3rem;">
-            <table class="kpi-table">
-                <thead>
-                    <tr>
-                        <th>KPI</th>
-                        <th>Month 3</th>
-                        <th>Month 6</th>
-                        <th>Month 12</th>
-                        <th>Scale Threshold</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Occupancy</td>
-                        <td>35%+</td>
-                        <td>55%+</td>
-                        <td>65%+</td>
-                        <td>65%+ sustained</td>
-                    </tr>
-                    <tr>
-                        <td>ADR Discipline</td>
-                        <td>Rate book live</td>
-                        <td>+10% vs comps</td>
-                        <td>Hotel-indexed</td>
-                        <td>No discount dependency</td>
-                    </tr>
-                    <tr>
-                        <td>Guest Rating</td>
-                        <td>4.8+</td>
-                        <td>4.9+</td>
-                        <td>4.9+</td>
-                        <td>5-star operating culture</td>
-                    </tr>
-                    <tr>
-                        <td>Owner Net ROI</td>
-                        <td>Ramp phase</td>
-                        <td>7–9% run-rate</td>
-                        <td>10%+ target</td>
-                        <td>Qualify for guarantee</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </section>
 
 
 <!-- ── GUARANTEE ─────────────────────────── -->
-<section id="guarantee" style="background:var(--panel);">
+<section id="guarantee" style="background:var(--panel-light);">
     <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
         <div class="fade-up">
             <div class="eyebrow">10% ROI Guarantee Framework</div>
@@ -1471,23 +1505,6 @@
                 </ul>
             </div>
         </div>
-
-        <div class="director-note fade-up delay-2">
-            <strong style="color:var(--gold);">Director decision:</strong> Do not market "guaranteed 10%" until finance, legal, reserve, exclusions and eligible-unit criteria are approved.
-        </div>
-    </div>
-</section>
-
-
-<!-- ── IMAGE BREAK ────────────────────────── -->
-<section style="height:60vh; overflow:hidden; position:relative;">
-    <div class="bg-cover" style="opacity:1;">
-        <img src="1.png" alt="Indoor Pool" style="opacity:0.7;">
-        <div class="overlay-bottom" style="background:linear-gradient(to bottom, rgba(4,8,6,0.5) 0%, rgba(4,8,6,0.98) 100%);"></div>
-    </div>
-    <div class="rel-content" style="position:absolute; bottom:3rem; left:50%; transform:translateX(-50%); text-align:center; width:90%;">
-        <p class="eyebrow">One Canal Road Amenities</p>
-        <p style="font-family:'Cinzel',serif; font-size:clamp(1rem,2vw,1.5rem); color:var(--white); letter-spacing:1px;">Hotel-grade amenities already in place. The missing layer is hospitality operations.</p>
     </div>
 </section>
 
@@ -1497,16 +1514,12 @@
     <div class="container" style="padding-top:10vh; padding-bottom:10vh;">
         <div class="bagh-grid">
             <div class="fade-up">
-                <!-- Bagh Logo Mark (SVG inline recreation of the oval badge) -->
                 <svg class="bagh-logo-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
                     <ellipse cx="50" cy="65" rx="46" ry="60" fill="none" stroke="#1a1208" stroke-width="2"/>
                     <ellipse cx="50" cy="65" rx="40" ry="54" fill="none" stroke="#1a1208" stroke-width="0.8"/>
-                    <!-- Stylised leaf decoration top -->
                     <path d="M35,30 Q50,15 65,30 Q50,22 35,30Z" fill="#1a1208" opacity="0.7"/>
                     <path d="M40,28 Q50,12 60,28" fill="none" stroke="#1a1208" stroke-width="0.8"/>
-                    <!-- bagh text -->
                     <text x="50" y="82" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#1a1208" letter-spacing="2" font-style="italic">bagh</text>
-                    <!-- small stars -->
                     <text x="32" y="55" font-family="serif" font-size="8" fill="#1a1208">✦</text>
                     <text x="65" y="55" font-family="serif" font-size="8" fill="#1a1208">✦</text>
                 </svg>
