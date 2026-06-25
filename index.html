@@ -1,852 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Homes Collection — Branded Residence</title>
-    <link rel="shortcut icon" href="logo3.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --forest: #040806;
-            --panel: #080f0b;
-            --panel-light: #0d1a12;
-            --gold: #C9A84C;
-            --white: #ffffff;
-            --off-white: #e8ecea;
-            --muted: #8fa099;
-            --border: rgba(201,168,76,0.15);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Homes Collection — Board Strategy Deck</title>
+  <link rel="shortcut icon" href="logo3.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--forest); color: var(--off-white); overflow-x: hidden; }
+  <style>
+    :root{
+      --bg:#060b08;
+      --panel:#0c1511;
+      --panel2:#111d17;
+      --gold:#c9a84c;
+      --text:#edf2ef;
+      --muted:#97a59f;
+      --border:rgba(201,168,76,.18);
+      --black:#000;
+      --success:#6dd39b;
+    }
 
-        .eyebrow { font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
-        .display { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3.8vw, 3.2rem); font-weight: 400; line-height: 1.15; color: var(--white); letter-spacing: 0.5px; }
-        .body-copy { font-size: clamp(0.88rem, 1.1vw, 1rem); font-weight: 300; color: var(--muted); line-height: 1.8; }
-        .hairline { width: 40px; height: 1px; background: var(--gold); margin-bottom: 1.8rem; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
 
-        section { position: relative; overflow: hidden; }
-        .container { max-width: 1080px; margin: 0 auto; padding: 0 5vw; }
-        .section-pad { padding: 9vh 0; }
+    .container{max-width:1180px;margin:0 auto;padding:0 5vw}
+    section{padding:90px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+    .eyebrow{
+      color:var(--gold);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-size:.68rem;
+      margin-bottom:12px;
+      font-weight:600;
+    }
+    .title{
+      font-family:'Cinzel',serif;
+      font-size:clamp(1.6rem,3.6vw,3rem);
+      line-height:1.2;
+      margin-bottom:14px;
+      color:#fff;
+    }
+    .sub{color:var(--muted);max-width:760px}
+    .hairline{height:1px;width:46px;background:var(--gold);margin:0 0 24px}
+    .center{text-align:center}
+    .center .hairline{margin:0 auto 24px}
 
-        .bg-cover { position: absolute; inset: 0; z-index: 0; }
-        .bg-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.3; }
-        .overlay-bottom { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,8,6,0.2) 0%, rgba(4,8,6,0.98) 100%); z-index: 1; }
-        .overlay-left { position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,8,6,0.97) 48%, rgba(4,8,6,0.1) 100%); z-index: 1; }
-        .overlay-right { position: absolute; inset: 0; background: linear-gradient(to left, rgba(4,8,6,0.97) 48%, rgba(4,8,6,0.1) 100%); z-index: 1; }
-        .rel-content { position: relative; z-index: 2; }
+    /* NAV */
+    nav{
+      position:sticky; top:0; z-index:50;
+      background:linear-gradient(to bottom,rgba(6,11,8,.96),rgba(6,11,8,.75));
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.04);
+    }
+    .nav-wrap{
+      min-height:78px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
+    }
+    .brand-left .a{font-family:'Cinzel',serif;letter-spacing:2px;font-size:.84rem}
+    .brand-left .b{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+    .logo-mid{height:64px;object-fit:contain}
+    .logo-right{height:34px;object-fit:contain}
 
-        /* NAV */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 0.5rem 5vw;
-            display: flex; align-items: center; justify-content: space-between;
-            background: linear-gradient(to bottom, rgba(4,8,6,0.97) 0%, rgba(4,8,6,0) 100%);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        }
-        .nav-brand-block { display: flex; flex-direction: column; }
-        .nav-brand { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 3px; color: var(--white); text-transform: uppercase; line-height: 1.3; }
-        .nav-sub { font-size: 0.62rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-top: 3px; }
-        .nav-center-logo { height: 120px; display: block; object-fit: contain; }
-        .nav-right-logo { height: 38px; display: block; object-fit: contain; }
+    /* HERO / SLIDE 1 */
+    #cover{
+      min-height:90vh;
+      display:flex;align-items:center;position:relative;
+      padding-top:60px;
+    }
+    .cover-bg{
+      position:absolute;inset:0;z-index:0;
+      background:url('2.png') center/cover no-repeat;
+      opacity:.34;
+    }
+    .cover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,11,8,.45),rgba(6,11,8,.95));z-index:1}
+    .cover-content{position:relative;z-index:2}
+    .tagline{
+      margin-top:18px;
+      color:var(--gold);
+      font-size:clamp(.95rem,1.7vw,1.2rem);
+      font-weight:300;
+      letter-spacing:.3px;
+    }
 
-        /* HERO */
-        #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-        #hero .rel-content { padding: 15vh 5vw 8vh; }
-        .hero-headline { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 4.4rem); font-weight: 400; line-height: 1.1; color: var(--white); max-width: 760px; margin: 0 auto; }
-        .hero-sub { font-size: clamp(0.88rem, 1.5vw, 1.15rem); color: var(--gold); font-weight: 300; letter-spacing: 1px; margin-top: 1.6rem; }
-        .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; }
-        .scroll-hint::after { content: ''; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollLine 2s ease-in-out infinite; }
-        @keyframes scrollLine { 0%,100%{opacity:0.3} 50%{opacity:1} }
+    /* GRID + CARDS */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:20px;
+    }
+    .card h3{font-size:.95rem;margin-bottom:8px;color:#fff}
+    .card p{font-size:.86rem;color:var(--muted)}
+    ul.clean{list-style:none;display:grid;gap:8px;margin-top:16px}
+    ul.clean li{
+      font-size:.86rem;color:var(--text);padding-left:16px;position:relative
+    }
+    ul.clean li::before{
+      content:'•';position:absolute;left:0;color:var(--gold)
+    }
 
-        /* OPERATING STANDARDS */
-        #operating-standards { background: var(--panel); }
-        .standards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.8rem; }
-        .standard-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 1.8rem; }
-        .standard-item h4 { font-size: 0.84rem; color: var(--white); font-weight: 600; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
-        .std-icon { width: 26px; height: 26px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--forest); font-size: 0.75rem; flex-shrink: 0; }
-        .standard-item p { font-size: 0.78rem; color: var(--muted); line-height: 1.75; }
+    /* TABLES */
+    .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:10px}
+    table{width:100%;border-collapse:collapse;min-width:740px;background:var(--panel)}
+    th,td{padding:11px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.05);font-size:.82rem}
+    th{font-size:.62rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}
+    td.gold{color:var(--gold);font-weight:600}
+    tr:last-child td{border-bottom:none}
+    .note{margin-top:10px;font-size:.72rem;color:var(--muted)}
 
-        /* AMENITIES */
-        #amenities { background: var(--panel-light); }
-        .amenity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; }
-        .amenity-item { border: 1px solid var(--border); padding: 1.3rem 0.8rem; border-radius: 6px; background: rgba(255,255,255,0.02); text-align: center; }
-        .amenity-item .icon-num { width: 38px; height: 38px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 600; color: var(--forest); margin: 0 auto 0.75rem; }
-        .amenity-item h4 { font-size: 0.78rem; font-weight: 500; color: var(--white); margin-bottom: 0.2rem; }
-        .amenity-item p { font-size: 0.65rem; color: var(--muted); }
+    .pill{
+      display:inline-block;padding:6px 10px;border:1px solid var(--border);
+      border-radius:999px;font-size:.72rem;color:var(--gold);margin:4px 6px 0 0
+    }
 
-        /* DIRECTOR VIEW */
-        #director-view { background: var(--panel); }
-        .director-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.8rem; }
-        .director-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; }
-        .director-box h3 { font-size: 0.88rem; color: var(--white); font-weight: 600; margin-bottom: 1.2rem; }
-        .director-box ul { list-style: none; }
-        .director-box li { font-size: 0.78rem; color: var(--muted); line-height: 1.75; padding-left: 1.2rem; position: relative; margin-bottom: 0.65rem; }
-        .director-box li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.65rem; }
+    .headline{
+      margin-top:14px;
+      font-size:1.05rem;
+      color:#fff;
+      font-weight:500;
+    }
 
-        /* PRICING */
-        #pricing { background: var(--panel-light); }
-        .split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5rem; align-items: center; }
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
-        .data-table th { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; }
-        .data-table td { padding: 0.78rem 0.7rem; font-size: 0.8rem; color: var(--off-white); border-bottom: 1px solid rgba(255,255,255,0.04); }
-        .data-table tr:hover td { background: rgba(255,255,255,0.02); }
-        .data-table td.gold { color: var(--gold); font-weight: 500; }
-        .data-table td.meets { font-size: 0.66rem; color: #5dca8a; letter-spacing: 1px; }
-        .data-table td.subtotal { background: rgba(201,168,76,0.08); font-weight: 600; color: var(--gold); font-size: 0.82rem; }
-        .rate-bar-group { margin-top: 2rem; }
-        .rate-bar-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; }
-        .rate-bar-label { font-size: 0.7rem; color: var(--muted); min-width: 110px; text-align: right; }
-        .rate-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-        .rate-bar-fill { height: 100%; border-radius: 2px; background: var(--gold); transition: width 1.5s ease; }
-        .rate-bar-fill.muted { background: rgba(255,255,255,0.2); }
-        .rate-bar-val { font-size: 0.7rem; color: var(--off-white); min-width: 80px; }
+    /* Slide 4 images */
+    .proof-images{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .proof-images img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:#0c1511}
+    .placeholder{
+      display:flex;align-items:center;justify-content:center;
+      color:var(--muted);font-size:.78rem;background:#0d1612
+    }
 
-        /* UNIT ECONOMICS */
-        #economics { background: var(--panel); }
-        .return-logic { display: flex; align-items: center; flex-wrap: wrap; margin-top: 2.5rem; }
-        .logic-step { padding: 0.85rem 0.9rem; background: var(--panel-light); border: 1px solid var(--border); font-size: 0.7rem; color: var(--off-white); flex: 1; text-align: center; min-width: 90px; }
-        .logic-step.dark { background: rgba(201,168,76,0.1); color: var(--gold); font-weight: 500; }
-        .logic-arrow { color: var(--muted); font-size: 0.72rem; padding: 0 0.15rem; }
+    /* Revenue streams */
+    .stream{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .stream:last-child{border-bottom:none}
+    .num{
+      font-family:'Cinzel',serif;font-size:1.6rem;color:rgba(201,168,76,.25);line-height:1
+    }
 
-        /* OCCUPANCY ROI */
-        #occupancy-roi { background: var(--panel-light); }
-        .occ-summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin: 3rem auto 0; max-width: 860px; }
-        .occ-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.4rem; text-align: center; }
-        .occ-card .num { font-family: 'Cinzel', serif; font-size: 1.7rem; color: var(--gold); margin-bottom: 0.4rem; }
-        .occ-card .lbl { font-size: 0.7rem; color: var(--white); font-weight: 500; margin-bottom: 0.55rem; }
-        .occ-card .desc { font-size: 0.68rem; color: var(--muted); line-height: 1.7; }
-        .occ-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin: 2.5rem 0 1.5rem; }
-        .occ-meta-item { font-size: 0.72rem; color: var(--muted); }
-        .occ-meta-item strong { color: var(--off-white); }
-        .occ-section-label { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); padding: 1.4rem 0.7rem 0.5rem; }
-        .data-table tr.occ-group-header td { background: rgba(201,168,76,0.06); font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 0.7rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+    /* Expat section */
+    .xp-stat{
+      background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center
+    }
+    .xp-stat .v{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold)}
+    .xp-stat .l{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-top:4px}
 
-        /* REVENUE STREAMS */
-        #revenue { background: var(--panel); }
-        .revenue-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-        .revenue-list { margin-top: 0; }
-        .revenue-item { display: grid; grid-template-columns: 40px 1fr auto; gap: 1.2rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .revenue-item:last-child { border-bottom: none; }
-        .rev-num { font-family: 'Cinzel', serif; font-size: 1.6rem; color: rgba(201,168,76,0.18); line-height: 1; }
-        .rev-body h3 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
-        .rev-body p { font-size: 0.76rem; color: var(--muted); }
-        .rev-figure { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--gold); white-space: nowrap; padding-top: 0.1rem; }
+    .bagh-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .bagh-gallery img{width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:10px;border:1px solid var(--border)}
 
-        /* COUNT-UP numbers */
-        .countup { display: inline-block; }
+    /* Final black slide */
+    #final-slide{
+      background:#000;
+      border-bottom:none;
+      min-height:68vh;
+      display:flex;align-items:center;
+    }
+    .final-logo{height:88px;object-fit:contain;margin-bottom:18px}
+    .final-lines{display:grid;gap:8px;margin-top:20px;color:#d5d5d5}
 
-
-        /* PORTFOLIO */
-        #portfolio { background: var(--panel-light); }
-        .portfolio-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .adoption-rows { margin-top: 2rem; }
-        .adoption-row { display: grid; grid-template-columns: 65px 105px 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .adoption-row .pct { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--gold); }
-        .adoption-row .units { font-size: 0.72rem; color: var(--muted); }
-        .adoption-bar-track { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-        .adoption-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; }
-        .adoption-row .mgmt-rev { font-size: 0.82rem; color: var(--white); font-weight: 500; text-align: right; }
-        .portfolio-totals { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-        .big-num { font-family: 'Cinzel', serif; font-size: 1.7rem; color: var(--gold); }
-        .big-lbl { font-size: 0.6rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 0.2rem; }
-
-        /* PILOT */
-        #pilot { background: var(--panel); }
-        .pilot-steps { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 3rem; position: relative; }
-        .pilot-steps::before { content: ''; position: absolute; top: 22px; left: 10%; right: 10%; height: 1px; background: var(--border); }
-        .pilot-step { text-align: center; padding: 0 0.6rem; }
-        .pilot-step .circle { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); color: var(--forest); font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; position: relative; z-index: 1; }
-        .pilot-step h4 { font-size: 0.78rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
-        .pilot-step p { font-size: 0.66rem; color: var(--muted); line-height: 1.6; }
-
-        /* GUARANTEE */
-        #guarantee { background: var(--panel-light); }
-        .guarantee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-        .guarantee-box { border: 1px solid var(--border); border-radius: 6px; padding: 2rem; }
-        .guarantee-box h4 { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-        .guarantee-box.red h4 { color: #d97070; }
-        .guarantee-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-        .guarantee-box li { font-size: 0.76rem; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.6; }
-        .guarantee-box li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.65rem; }
-        .guarantee-box.red li::before { color: #d97070; }
-
-        /* BAGH */
-        #bagh { background: #f5f0e8; padding: 10vh 0; }
-        .bagh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .bagh-logo-wrap { margin-bottom: 2rem; }
-        .bagh-logo-img { width: 160px; height: auto; display: block; }
-        #bagh .eyebrow { color: #8B6914; }
-        #bagh .hairline { background: #8B6914; }
-        #bagh .display { color: #1a1208; }
-        #bagh .body-copy { color: #6b5c3e; max-width: 480px; }
-        .bagh-images { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-        .bagh-images img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; }
-        .bagh-images img:first-child { margin-top: 2.5rem; }
-
-        /* WHY EXPAT STAYS (before closing) */
-        #why-expat { background: var(--panel); }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 3rem 0; }
-        .stat-cell { background: var(--panel); padding: 2rem 1.2rem; text-align: center; }
-        .stat-cell .val { font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 2.2vw, 1.9rem); color: var(--gold); margin-bottom: 0.4rem; }
-        .stat-cell .lbl { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
-        .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-        .story-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 1.8rem; }
-        .story-box h3 { font-size: 0.85rem; color: var(--white); font-weight: 600; margin-bottom: 0.75rem; }
-        .story-box p { font-size: 0.78rem; color: var(--muted); line-height: 1.75; }
-
-        /* CLOSING */
-        #closing { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-        #closing .rel-content { padding: 12vh 5vw 10vh; width: 100%; }
-        .closing-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 760px; margin: 3.5rem auto 0; }
-        .closing-action-box { border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 0.8rem; }
-        .closing-action-box .step-num { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 0.4rem; }
-        .closing-action-box .step-title { font-size: 0.72rem; color: var(--off-white); font-weight: 500; margin-bottom: 0.2rem; }
-        .closing-action-box .step-sub { font-size: 0.62rem; color: var(--muted); }
-        .closing-brand { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--gold); margin-top: 3.5rem; }
-        .closing-powered { font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
-
-        /* ANIMATIONS */
-        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-
-        /* RESPONSIVE */
-        @media (max-width: 960px) {
-            .split, .portfolio-split, .director-grid, .bagh-grid, .revenue-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-            .story-grid { grid-template-columns: 1fr 1fr; }
-            .amenity-grid { grid-template-columns: repeat(3, 1fr); }
-            .standards-grid { grid-template-columns: repeat(2, 1fr); }
-            .pilot-steps { grid-template-columns: 1fr 1fr; }
-            .pilot-steps::before { display: none; }
-            .guarantee-grid { grid-template-columns: 1fr; }
-            .return-logic { flex-direction: column; }
-            .adoption-row { grid-template-columns: 65px 1fr auto; }
-            .adoption-row .units { display: none; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .closing-actions { grid-template-columns: 1fr 1fr; }
-            .occ-summary-cards { grid-template-columns: 1fr; }
-            .bagh-images img:first-child { margin-top: 0; }
-            .bagh-logo-img { width: 130px; }
-        }
-        @media (max-width: 600px) {
-            .amenity-grid { grid-template-columns: 1fr 1fr; }
-            .story-grid { grid-template-columns: 1fr; }
-            .standards-grid { grid-template-columns: 1fr; }
-            .bagh-images { grid-template-columns: 1fr; }
-            .bagh-logo-img { width: 110px; }
-            nav { padding: 0.4rem 4vw; }
-            .nav-center-logo { height: 80px; }
-            .nav-right-logo { height: 28px; }
-            .nav-brand { font-size: 0.65rem; letter-spacing: 2px; }
-            .nav-sub { font-size: 0.55rem; }
-            .closing-actions { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-            .return-logic .logic-step { min-width: unset; width: 100%; }
-            .data-table th, .data-table td { font-size: 0.68rem; padding: 0.55rem 0.4rem; }
-            .data-table th { font-size: 0.55rem; }
-            .occ-meta { flex-direction: column; gap: 0.5rem; }
-        }
-    </style>
+    /* Responsive */
+    @media (max-width:980px){
+      .grid-4{grid-template-columns:1fr 1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .proof-images{grid-template-columns:1fr}
+      .bagh-gallery{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      section{padding:72px 0}
+      .grid-4,.grid-3{grid-template-columns:1fr}
+      .logo-mid{height:48px}.logo-right{height:26px}
+      .brand-left .a{font-size:.7rem}.brand-left .b{font-size:.54rem}
+      .nav-wrap{min-height:66px}
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="nav-brand-block">
-        <span class="nav-brand">One Homes Collection</span>
-        <span class="nav-sub">Powered by Expat Stays</span>
+  <nav>
+    <div class="container nav-wrap">
+      <div class="brand-left">
+        <div class="a">One Homes Collection</div>
+        <div class="b">Powered by Expat Stays</div>
+      </div>
+      <img src="logo3.png" alt="One Homes Collection" class="logo-mid" />
+      <img src="logo2_bg_less.png" alt="Expat Stays" class="logo-right" />
     </div>
-    <img src="logo3.png" alt="One Homes Collection" class="nav-center-logo">
-    <img src="logo2_bg_less.png" alt="Expat Stays" class="nav-right-logo">
-</nav>
+  </nav>
 
-
-<!-- HERO -->
-<section id="hero">
-    <div class="bg-cover">
-        <img src="2.png" alt="One Canal Road">
-        <div class="overlay-bottom"></div>
+  <!-- SLIDE 1: COVER -->
+  <section id="cover">
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+    <div class="container cover-content center">
+      <div class="eyebrow">ONE HOMES COLLECTION</div>
+      <div class="hairline"></div>
+      <h1 class="title">ONE HOMES COLLECTION</h1>
+      <p class="sub" style="margin:0 auto;">Powered by Expat Stays</p>
+      <p class="tagline">“Transforming luxury residences into income-producing hospitality assets.”</p>
     </div>
-    <div class="rel-content">
-        <div class="fade-up">
-            <div class="eyebrow">One Homes Collection</div>
-            <div class="hairline" style="margin: 0 auto 2rem;"></div>
-        </div>
-        <h1 class="hero-headline fade-up delay-1">Pakistan's Leading<br>Branded Residence Platform</h1>
-        <p class="hero-sub fade-up delay-2">Luxury hospitality meets residential excellence.</p>
-    </div>
-    <div class="scroll-hint">Scroll</div>
-</section>
+  </section>
 
-
-<!-- OPERATING STANDARDS -->
-<section id="operating-standards">
-    <div class="container section-pad">
-        <div class="fade-up">
-            <div class="eyebrow">Operating Standards</div>
-            <div class="hairline"></div>
-            <h2 class="display">How we protect quality<br>and pricing integrity.</h2>
-        </div>
-        <div class="standards-grid fade-up delay-1">
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> We manage. Not list.</h4>
-                <p>Every unit is directly managed — we control quality from start to finish, not simply advertised on a marketplace.</p>
-            </div>
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> Pre-listing Inspection</h4>
-                <p>Utilities, cleanliness, safety, internet reliability and guest readiness checked before launch.</p>
-            </div>
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> Ongoing Quality Checks</h4>
-                <p>Cleaning, repairs, upgrades and presentation maintained between guests so the product never decays.</p>
-            </div>
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> Direct Support</h4>
-                <p>Issues handled by real people who know the property. No outsourced support. No blame shifting.</p>
-            </div>
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> Quality Over Scale</h4>
-                <p>We would rather manage fewer properties properly than chase uncontrolled growth.</p>
-            </div>
-            <div class="standard-item">
-                <h4><span class="std-icon">✓</span> Trust-First Bookings</h4>
-                <p>Built around relationships with overseas Pakistanis. Direct communication and transparency are core.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- AMENITIES -->
-<section id="amenities">
-    <div class="container section-pad">
-        <div class="fade-up">
-            <div class="eyebrow">One Canal Road Amenities</div>
-            <div class="hairline"></div>
-            <h2 class="display">Hotel-grade amenities.<br>Apartment-grade privacy.</h2>
-        </div>
-        <div class="amenity-grid fade-up delay-1">
-            <div class="amenity-item"><div class="icon-num">1</div><h4>Coffee Shop</h4><p>Lifestyle convenience</p></div>
-            <div class="amenity-item"><div class="icon-num">2</div><h4>24-Hr Concierge</h4><p>Service trust</p></div>
-            <div class="amenity-item"><div class="icon-num">3</div><h4>International Store</h4><p>Expat essentials</p></div>
-            <div class="amenity-item"><div class="icon-num">4</div><h4>Sky Pool & Lounge</h4><p>Hotel-like leisure</p></div>
-            <div class="amenity-item"><div class="icon-num">5</div><h4>Kids' Club</h4><p>Family amenity</p></div>
-            <div class="amenity-item"><div class="icon-num">6</div><h4>Full Spa</h4><p>Wellness positioning</p></div>
-            <div class="amenity-item"><div class="icon-num">7</div><h4>Residents' Theatre</h4><p>Experiential amenity</p></div>
-            <div class="amenity-item"><div class="icon-num">8</div><h4>State-of-the-art Gym</h4><p>Corporate & family</p></div>
-            <div class="amenity-item"><div class="icon-num">9</div><h4>24-Hr Security</h4><p>Family confidence</p></div>
-            <div class="amenity-item"><div class="icon-num">10</div><h4>Central AC</h4><p>Luxury baseline</p></div>
-        </div>
-    </div>
-</section>
-
-
-<!-- DIRECTOR VIEW -->
-<section id="director-view">
-    <div class="container section-pad">
-        <div class="fade-up">
-            <div class="eyebrow">Director View</div>
-            <div class="hairline"></div>
-            <h2 class="display">Why One Homes should<br>pursue this now.</h2>
-            <p class="body-copy" style="margin-top: 1.2rem; max-width: 520px;">A branded residence strategy to unlock recurring revenue, investor confidence and long-term brand equity — not another rental programme.</p>
-        </div>
-        <div class="director-grid fade-up delay-1">
-            <div class="director-box">
-                <h3>Core Investment Case</h3>
-                <ul>
-                    <li>One Canal Road has the amenity base to compete with luxury hotels, not just apartments.</li>
-                    <li>A 10% annual owner return is feasible — hotel-grade logic: 2 hotel rooms = 1 two-bed residence.</li>
-                    <li>Beyond owner ROI, One Homes gains management fee participation, staff utilisation, future sales leads and stronger investor retention.</li>
-                    <li>Every guest experiences the building before becoming a buyer.</li>
-                </ul>
-            </div>
-            <div class="director-box">
-                <h3>Recommended Next Steps</h3>
-                <ul>
-                    <li>Define a launch-phase inventory set with strongest family appeal and amenity adjacency.</li>
-                    <li>Lock a premium furnishing specification so units justify target ADR from day one.</li>
-                    <li>Approve a price ladder, inventory thresholds, occupancy targets and management fee participation.</li>
-                    <li>Build One Homes Collection as a branded residence division — not a generic rental programme.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PRICING -->
-<section id="pricing">
-    <div class="bg-cover">
-        <img src="5.png" alt="Architecture">
-        <div class="overlay-left"></div>
-    </div>
-    <div class="rel-content">
-        <div class="container section-pad">
-            <div class="split">
-                <div class="fade-up">
-                    <div class="eyebrow">Hotel Pricing Benchmark</div>
-                    <div class="hairline"></div>
-                    <h2 class="display">Priced against<br>luxury hotels.</h2>
-                    <p class="body-copy" style="margin-top: 1.2rem;">A two-bedroom branded residence competes with two hotel rooms — while offering a full kitchen, living areas, privacy, and building amenities.</p>
-                    <table class="data-table" style="margin-top: 2rem;">
-                        <thead><tr><th>Property</th><th>Nightly Rate</th></tr></thead>
-                        <tbody>
-                            <tr><td>Pearl Continental Lahore</td><td class="gold">$87 – $110+</td></tr>
-                            <tr><td>The Nishat Hotel</td><td class="gold">$142 – $208</td></tr>
-                            <tr><td>Avari Lahore</td><td class="gold">$93 – $158</td></tr>
-                            <tr><td>The Fred Hotel</td><td class="gold">$101 – $150</td></tr>
-                        </tbody>
-                    </table>
-                    <p style="font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 2rem; margin-bottom: 1rem;">Rate Positioning</p>
-                    <div class="rate-bar-group">
-                        <div class="rate-bar-item">
-                            <div class="rate-bar-label">Luxury Hotel</div>
-                            <div class="rate-bar-track"><div class="rate-bar-fill muted" data-width="80"></div></div>
-                            <div class="rate-bar-val">$100–$208</div>
-                        </div>
-                        <div class="rate-bar-item">
-                            <div class="rate-bar-label">One Homes 1 Bed</div>
-                            <div class="rate-bar-track"><div class="rate-bar-fill" data-width="36"></div></div>
-                            <div class="rate-bar-val">ADR $75</div>
-                        </div>
-                        <div class="rate-bar-item">
-                            <div class="rate-bar-label">One Homes 2 Bed</div>
-                            <div class="rate-bar-track"><div class="rate-bar-fill" data-width="57"></div></div>
-                            <div class="rate-bar-val">ADR $150</div>
-                        </div>
-                        <div class="rate-bar-item">
-                            <div class="rate-bar-label">One Homes 3 Bed</div>
-                            <div class="rate-bar-track"><div class="rate-bar-fill" data-width="76"></div></div>
-                            <div class="rate-bar-val">ADR $200</div>
-                        </div>
-                        <div class="rate-bar-item">
-                            <div class="rate-bar-label">Sky Villas</div>
-                            <div class="rate-bar-track"><div class="rate-bar-fill" data-width="92"></div></div>
-                            <div class="rate-bar-val">ADR $240–$720</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fade-up delay-2" style="position: relative;">
-                    <div style="position: relative; overflow: hidden; border-radius: 4px;">
-                        <img src="6.png" alt="One Canal Road" style="width: 100%; display: block; transform: scale(1.04); transform-origin: center;">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,8,6,0.1) 0%, transparent 20%, transparent 70%, rgba(4,8,6,0.5) 100%); pointer-events: none;"></div>
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,8,6,0.3) 0%, transparent 20%); pointer-events: none;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- UNIT ECONOMICS -->
-<section id="economics">
-    <div class="container section-pad">
-        <div class="fade-up">
-            <div class="eyebrow">Base Case Unit Economics</div>
-            <div class="hairline"></div>
-            <h2 class="display">Stabilised returns<br>by apartment type.</h2>
-        </div>
-        <table class="data-table fade-up delay-1" style="margin-top: 2.5rem;">
-            <thead>
-                <tr><th>Type</th><th>Target ADR</th><th>Occupancy</th><th>Gross / Year</th><th>Owner Net</th><th>ROI</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1 Bed</td><td>$110</td><td>68%</td><td>$27.3K</td><td class="gold">$13.1K</td><td class="gold">12.4%</td><td class="meets">✓ Meets 10%</td></tr>
-                <tr><td>2 Bed</td><td>$220</td><td>62%</td><td>$49.8K</td><td class="gold">$23.9K</td><td class="gold">11.0%</td><td class="meets">✓ Meets 10%</td></tr>
-                <tr><td>3 Bed</td><td>$285</td><td>58%</td><td>$60.3K</td><td class="gold">$29.0K</td><td class="gold">10.7%</td><td class="meets">✓ Meets 10%</td></tr>
-                <tr><td>Sky Villa 2 Bed</td><td>$320</td><td>55%</td><td>$64.2K</td><td class="gold">$30.8K</td><td class="gold">10.7%</td><td class="meets">✓ Meets 10%</td></tr>
-            </tbody>
-        </table>
-        <div class="return-logic fade-up delay-2">
-            <div class="logic-step">Gross Revenue</div><div class="logic-arrow">→</div>
-            <div class="logic-step">−12% OTA</div><div class="logic-arrow">→</div>
-            <div class="logic-step">−10% Guest Ops</div><div class="logic-arrow">→</div>
-            <div class="logic-step">−5% Reserve</div><div class="logic-arrow">→</div>
-            <div class="logic-step">−25% Mgmt Fee</div><div class="logic-arrow">→</div>
-            <div class="logic-step dark">≈ 48% Owner Net</div>
-        </div>
-    </div>
-</section>
-
-
-<!-- OCCUPANCY ROI — Full detailed table from PDF -->
-<section id="occupancy-roi">
-    <div class="container section-pad">
-        <div class="fade-up" style="text-align: center;">
-            <div class="eyebrow">Occupancy ROI — One Canal Road, Lahore</div>
-            <div class="hairline" style="margin: 0 auto 1.5rem;"></div>
-            <h2 class="display">Performance at every<br>occupancy level.</h2>
-            <p class="body-copy" style="margin: 1.2rem auto 0; text-align: center; max-width: 500px;">108 units across 6 apartment types. All values in USD.</p>
-        </div>
-
-        <div class="occ-meta fade-up delay-1">
-            <div class="occ-meta-item"><strong>Management fee</strong> — 25% of total projected gross revenue</div>
-            <div class="occ-meta-item"><strong>Owner revenue</strong> — 75% after management fee</div>
-            <div class="occ-meta-item"><strong>Updated ADRs</strong> — 2BR $150 · 3BR $200</div>
-        </div>
-
-        <div class="occ-summary-cards fade-up delay-1">
-            <div class="occ-card">
-                <div class="num">25%</div>
-                <div class="lbl">Conservative Case</div>
-                <div class="desc">Gross $1,380,613 · Owner $1,035,459 · Yield 4.94%</div>
-            </div>
-            <div class="occ-card">
-                <div class="num">50%</div>
-                <div class="lbl">Base Case</div>
-                <div class="desc">Gross $2,761,225 · Owner $2,070,919 · Yield 9.87%</div>
-            </div>
-            <div class="occ-card">
-                <div class="num">80%</div>
-                <div class="lbl">High Performance</div>
-                <div class="desc">Gross $4,417,960 · Owner $3,313,470 · Yield 15.80%</div>
-            </div>
-        </div>
-
-        <div style="overflow-x: auto; margin-top: 3rem;" class="fade-up delay-2">
-            <table class="data-table" style="min-width: 680px;">
-                <thead>
-                    <tr>
-                        <th>Occ.</th>
-                        <th>Apartment Type</th>
-                        <th>Units</th>
-                        <th>Avg Price</th>
-                        <th>ADR</th>
-                        <th>Annual Gross</th>
-                        <th>ES Fee (25%)</th>
-                        <th>Owner Rev (75%)</th>
-                        <th>Gross Yield</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 25% -->
-                    <tr><td>25%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$287,438</td><td>$71,859</td><td class="gold">$215,578</td><td class="gold">4.84%</td></tr>
-                    <tr><td>25%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$561,188</td><td>$140,297</td><td class="gold">$420,891</td><td class="gold">4.72%</td></tr>
-                    <tr><td>25%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$365,000</td><td>$91,250</td><td class="gold">$273,750</td><td class="gold">5.04%</td></tr>
-                    <tr><td>25%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$65,700</td><td>$16,425</td><td class="gold">$49,275</td><td class="gold">5.69%</td></tr>
-                    <tr><td>25%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$390</td><td>$35,588</td><td>$8,897</td><td class="gold">$26,691</td><td class="gold">6.06%</td></tr>
-                    <tr><td>25%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$720</td><td>$65,700</td><td>$16,425</td><td class="gold">$49,275</td><td class="gold">5.70%</td></tr>
-                    <tr>
-                        <td colspan="5" class="subtotal">25% TOTAL / WEIGHTED PORTFOLIO — 108 units</td>
-                        <td class="subtotal">$1,380,613</td><td class="subtotal">$345,153</td>
-                        <td class="subtotal">$1,035,459</td><td class="subtotal">4.94%</td>
-                    </tr>
-                    <!-- 50% -->
-                    <tr><td>50%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$574,875</td><td>$143,719</td><td class="gold">$431,156</td><td class="gold">9.68%</td></tr>
-                    <tr><td>50%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$1,122,375</td><td>$280,594</td><td class="gold">$841,781</td><td class="gold">9.44%</td></tr>
-                    <tr><td>50%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$730,000</td><td>$182,500</td><td class="gold">$547,500</td><td class="gold">10.08%</td></tr>
-                    <tr><td>50%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$131,400</td><td>$32,850</td><td class="gold">$98,550</td><td class="gold">11.38%</td></tr>
-                    <tr><td>50%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$390</td><td>$71,175</td><td>$17,794</td><td class="gold">$53,381</td><td class="gold">12.12%</td></tr>
-                    <tr><td>50%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$720</td><td>$131,400</td><td>$32,850</td><td class="gold">$98,550</td><td class="gold">11.39%</td></tr>
-                    <tr>
-                        <td colspan="5" class="subtotal">50% TOTAL / WEIGHTED PORTFOLIO — 108 units</td>
-                        <td class="subtotal">$2,761,225</td><td class="subtotal">$690,306</td>
-                        <td class="subtotal">$2,070,919</td><td class="subtotal">9.87%</td>
-                    </tr>
-                    <!-- 80% -->
-                    <tr><td>80%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$919,800</td><td>$229,950</td><td class="gold">$689,850</td><td class="gold">15.49%</td></tr>
-                    <tr><td>80%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$1,795,800</td><td>$448,950</td><td class="gold">$1,346,850</td><td class="gold">15.10%</td></tr>
-                    <tr><td>80%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$1,168,000</td><td>$292,000</td><td class="gold">$876,000</td><td class="gold">16.12%</td></tr>
-                    <tr><td>80%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$210,240</td><td>$52,560</td><td class="gold">$157,680</td><td class="gold">18.20%</td></tr>
-                    <tr><td>80%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$390</td><td>$113,880</td><td>$28,470</td><td class="gold">$85,410</td><td class="gold">19.39%</td></tr>
-                    <tr><td>80%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$720</td><td>$210,240</td><td>$52,560</td><td class="gold">$157,680</td><td class="gold">18.23%</td></tr>
-                    <tr>
-                        <td colspan="5" class="subtotal">80% TOTAL / WEIGHTED PORTFOLIO — 108 units</td>
-                        <td class="subtotal">$4,417,960</td><td class="subtotal">$1,104,490</td>
-                        <td class="subtotal">$3,313,470</td><td class="subtotal">15.80%</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="font-size: 0.62rem; color: var(--muted); margin-top: 1rem; line-height: 1.6;">Formula: Gross Revenue = ADR × 365 × Occupancy × Units Sold. Expat Stays Fee = 25% of gross revenue. Owner Revenue = 75% after fee. Gross Yield = Owner Revenue per unit ÷ Avg Purchase Price.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- REVENUE STREAMS -->
-<section id="revenue">
-    <div class="bg-cover">
-        <img src="7.png" alt="Building">
-        <div class="overlay-right"></div>
-    </div>
-    <div class="rel-content">
-        <div class="container section-pad">
-            <div class="revenue-layout">
-                <div>
-                    <div class="eyebrow fade-up">Five Revenue Streams</div>
-                    <div class="hairline fade-up"></div>
-                    <h2 class="display fade-up">Beyond rentals.<br>A platform that<br>monetises everything.</h2>
-                    <p class="body-copy fade-up delay-1" style="margin-top: 1.2rem; max-width: 420px;">Every unit that enters the programme generates recurring income for One Homes — on top of the sale that already happened.</p>
-                </div>
-                <div class="revenue-list fade-up delay-1">
-                    <div class="revenue-item">
-                        <div class="rev-num">01</div>
-                        <div class="rev-body"><h3>Apartment Setup Margin</h3><p>$10K cost → $12K invoice. One Homes earns from every unit entering the programme.</p></div>
-                        <div class="rev-figure">$2K/unit</div>
-                    </div>
-                    <div class="revenue-item">
-                        <div class="rev-num">02</div>
-                        <div class="rev-body"><h3>Recurring Management Fees</h3><p>25% of booking revenue — shared 60% Expat Stays / 40% One Homes.</p></div>
-                        <div class="rev-figure">25%</div>
-                    </div>
-                    <div class="revenue-item">
-                        <div class="rev-num">03</div>
-                        <div class="rev-body"><h3>Staff Utilisation</h3><p>Housekeeping, concierge and service requests monetise existing building operations.</p></div>
-                        <div class="rev-figure">Ongoing</div>
-                    </div>
-                    <div class="revenue-item">
-                        <div class="rev-num">04</div>
-                        <div class="rev-body"><h3>Investor Retention</h3><p>A 10% return target changes the sales story from purchase to performing asset.</p></div>
-                        <div class="rev-figure">10% ROI</div>
-                    </div>
-                    <div class="revenue-item">
-                        <div class="rev-num">05</div>
-                        <div class="rev-body"><h3>Future Sales Conversion</h3><p>Every guest experiences the building and becomes a qualified lead for future projects.</p></div>
-                        <div class="rev-figure">Leads</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PORTFOLIO SIMULATION -->
-<section id="portfolio">
-    <div class="container section-pad">
-        <div class="portfolio-split">
-            <div class="fade-up">
-                <div class="eyebrow">Portfolio Revenue Simulation</div>
-                <div class="hairline"></div>
-                <h2 class="display">Recurring revenue from<br>sold inventory.</h2>
-                <p class="body-copy" style="margin-top: 1.2rem;">This revenue is created after apartments are already sold. The platform also improves investor experience, generates guest leads, and monetises existing building services.</p>
-                <p style="font-size: 0.66rem; color: var(--muted); margin-top: 1.5rem; line-height: 1.75;">108 sold units · Base case ADR/occupancy by type · 25% management fee · 60/40 ES/OH split · $2K setup margin per unit</p>
-            </div>
-            <div class="fade-up delay-1">
-                <p style="font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem;">One Homes Recurring Management Revenue</p>
-                <div class="adoption-rows">
-                    <div class="adoption-row">
-                        <div class="pct">25%</div><div class="units">27 units</div>
-                        <div class="adoption-bar-track"><div class="adoption-bar-fill" data-width="25" style="width:0%"></div></div>
-                        <div class="mgmt-rev">$120K</div>
-                    </div>
-                    <div class="adoption-row">
-                        <div class="pct">50%</div><div class="units">54 units</div>
-                        <div class="adoption-bar-track"><div class="adoption-bar-fill" data-width="50" style="width:0%"></div></div>
-                        <div class="mgmt-rev">$240K</div>
-                    </div>
-                    <div class="adoption-row">
-                        <div class="pct">75%</div><div class="units">81 units</div>
-                        <div class="adoption-bar-track"><div class="adoption-bar-fill" data-width="75" style="width:0%"></div></div>
-                        <div class="mgmt-rev">$360K</div>
-                    </div>
-                    <div class="adoption-row">
-                        <div class="pct">100%</div><div class="units">108 units</div>
-                        <div class="adoption-bar-track"><div class="adoption-bar-fill" data-width="100" style="width:0%"></div></div>
-                        <div class="mgmt-rev">$480K</div>
-                    </div>
-                </div>
-                <div class="portfolio-totals">
-                    <div><div class="big-num">$20.98M</div><div class="big-lbl">Aggregate Inventory Value</div></div>
-                    <div><div class="big-num" style="color:var(--white)">108</div><div class="big-lbl">Sold Units in Model</div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PILOT PLAN -->
-<section id="pilot">
-    <div class="container section-pad">
-        <div class="fade-up" style="text-align: center;">
-            <div class="eyebrow">Pilot Plan</div>
-            <div class="hairline" style="margin: 0 auto 1.5rem;"></div>
-            <h2 class="display">Start controlled.<br>Prove. Then scale.</h2>
-        </div>
-        <div class="pilot-steps fade-up delay-1">
-            <div class="pilot-step"><div class="circle">1</div><h4>Pilot Selection</h4><p>10–15 high-quality units across 1B, 2B and 3B categories.</p></div>
-            <div class="pilot-step"><div class="circle">2</div><h4>Setup Standardisation</h4><p>Furnishing pack, photography, OTA listings and service SOPs.</p></div>
-            <div class="pilot-step"><div class="circle">3</div><h4>Revenue Launch</h4><p>Dynamic pricing for 90 days and build review velocity.</p></div>
-            <div class="pilot-step"><div class="circle">4</div><h4>KPI Review</h4><p>Occupancy, ADR, RevPAR, owner net return and guest ratings.</p></div>
-            <div class="pilot-step"><div class="circle">5</div><h4>Scale Decision</h4><p>Open to more owners after return proof and operational stability.</p></div>
-        </div>
-    </div>
-</section>
-
-
-<!-- GUARANTEE -->
-<section id="guarantee">
-    <div class="container section-pad">
-        <div class="fade-up">
-            <div class="eyebrow">10% ROI Guarantee Framework</div>
-            <div class="hairline"></div>
-            <h2 class="display">Structured as a controlled,<br>reserve-backed target.</h2>
-        </div>
-        <div class="guarantee-grid fade-up delay-1">
-            <div class="guarantee-box">
-                <h4>Guarantee Architecture</h4>
-                <ul>
-                    <li>Offer only to qualifying units following One Homes Collection standards.</li>
-                    <li>Calculate return annually after deducting operating costs and management fee.</li>
-                    <li>Return Support Reserve funded from a portion of management fee and setup margin.</li>
-                    <li>If actual owner net return is below 10%, approved shortfall is topped up from reserve.</li>
-                    <li>Sky villas and owner-blocked units require separate underwriting.</li>
-                </ul>
-            </div>
-            <div class="guarantee-box red">
-                <h4>Essential Exclusions</h4>
-                <ul>
-                    <li>Owner blocks peak dates or reduces annual availability below qualifying threshold.</li>
-                    <li>Owner refuses approved upgrades or standard operating requirements.</li>
-                    <li>Regulatory change, force majeure, building closure or major maintenance shutdown.</li>
-                    <li>Damage or unusual repair cost outside normal operations.</li>
-                    <li>Early termination before the annual guarantee period is completed.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- BAGH -->
-<section id="bagh">
+  <!-- SLIDE 2: THE OPPORTUNITY -->
+  <section id="opportunity">
     <div class="container">
-        <div class="bagh-grid">
-            <div class="fade-up">
-                <div class="bagh-logo-wrap">
-                    <img src="bagh_logo.png" alt="Bagh Basics" class="bagh-logo-img">
-                </div>
-                <div class="eyebrow">Bagh Basics</div>
-                <div class="hairline"></div>
-                <h2 class="display">A curated lifestyle<br>partner.</h2>
-                <p class="body-copy" style="margin-top: 1.2rem;">Bagh brings a warm, botanical-inspired sensibility to the One Homes Collection ecosystem — a curated presence in the building's lifestyle offering that complements the branded residence experience.</p>
-                <p class="body-copy" style="margin-top: 0.9rem;">Where the building offers scale and amenity, Bagh offers character — the kind of detail that guests remember and residents talk about.</p>
-            </div>
-            <div class="bagh-images fade-up delay-1">
-                <img src="SnapInsta.to_670776365_17885950977497784_1569665429548335837_n.jpg" alt="Bagh lifestyle">
-                <img src="SnapInsta.to_670760900_17885950905497784_9033382022902896840_n.jpg" alt="Bagh interiors">
-            </div>
-        </div>
+      <div class="eyebrow">Slide 2 — The Opportunity</div>
+      <div class="hairline"></div>
+      <h2 class="title">Most developers make money once.<br>One Homes Collection creates recurring revenue.</h2>
+      <p class="sub">Create recurring revenue without building another project.</p>
+
+      <ul class="clean">
+        <li>Revenue from apartment setups</li>
+        <li>Revenue from management fees</li>
+        <li>Increased investor retention</li>
+        <li>Future property sales</li>
+        <li>Additional contribution toward operational staff</li>
+      </ul>
     </div>
-</section>
+  </section>
 
+  <!-- SLIDE 3: WHY OCR UNIQUE -->
+  <section id="unique">
+    <div class="container">
+      <div class="eyebrow">Slide 3 — Why One Canal Road Is Unique</div>
+      <div class="hairline"></div>
+      <h2 class="title">Airbnb isn’t our competition.<br>Luxury hotels are.</h2>
+      <p class="headline">Why stay in a hotel room when you can stay in a luxury residence?</p>
 
-<!-- WHY EXPAT STAYS — moved before closing -->
-<section id="why-expat">
-    <div class="container section-pad">
-        <div class="fade-up" style="text-align: center;">
-            <div class="eyebrow">Why Expat Stays</div>
-            <div class="hairline" style="margin: 0 auto 1.5rem;"></div>
-            <h2 class="display">The right operating partner.</h2>
-            <p class="body-copy" style="margin: 1.2rem auto 0; max-width: 500px; text-align: center;">Built by people who understand both sides of the overseas Pakistani experience — and the standards that come with it.</p>
-        </div>
-        <div class="stats-grid fade-up delay-1">
-            <div class="stat-cell"><div class="val">21+</div><div class="lbl">Years Local Experience</div></div>
-            <div class="stat-cell"><div class="val">6+</div><div class="lbl">Years Overseas Focus</div></div>
-            <div class="stat-cell"><div class="val">60K+</div><div class="lbl">Audience Reach</div></div>
-            <div class="stat-cell"><div class="val">Direct</div><div class="lbl">Management Model</div></div>
-        </div>
-        <div class="story-grid fade-up delay-2">
-            <div class="story-box">
-                <h3>Our Story</h3>
-                <p>Expat Stays was built by people who understand both sides of the overseas Pakistani experience — living abroad, visiting Pakistan and eventually returning home. We built this service because hotels were impersonal and Airbnb was inconsistent.</p>
-            </div>
-            <div class="story-box">
-                <h3>Why We Are Different</h3>
-                <p>We do not simply list properties. Every property is directly managed, personally inspected and quality controlled. We prioritise honest representation, reliable standards and direct accountability.</p>
-            </div>
-            <div class="story-box">
-                <h3>Proof Points</h3>
-                <p>Managing luxury hospitality inventory. Validating willingness to pay for privacy and quality. Deep experience with overseas Pakistani travellers and long-stay customers with exposure to UAE and UK market standards.</p>
-            </div>
-        </div>
+      <div class="table-wrap" style="margin-top:20px;">
+        <table>
+          <thead>
+            <tr><th>One Canal Road</th><th>Luxury Hotel</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Full Residence</td><td>Hotel Room</td></tr>
+            <tr><td>Multiple Bedrooms</td><td>Single Room</td></tr>
+            <tr><td>Living Area</td><td>Limited</td></tr>
+            <tr><td>Kitchen</td><td>No</td></tr>
+            <tr><td>Infinity Pool</td><td>Rare</td></tr>
+            <tr><td>Spa</td><td>Limited</td></tr>
+            <tr><td>Gym</td><td>Standard</td></tr>
+            <tr><td>Kids Play Area</td><td>Rare</td></tr>
+            <tr><td>Childcare/Nannies</td><td>Rare</td></tr>
+            <tr><td>Café</td><td>Limited</td></tr>
+            <tr><td>Concierge</td><td>Standard</td></tr>
+            <tr><td>Long-Stay Friendly</td><td>Limited</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</section>
+  </section>
 
+  <!-- SLIDE 4: PROOF OF DEMAND -->
+  <section id="proof">
+    <div class="container">
+      <div class="eyebrow">Slide 4 — Proof of Demand</div>
+      <div class="hairline"></div>
+      <h2 class="title">Demand already exists.</h2>
+      <p class="sub">If average apartments can perform, a professionally managed branded platform can perform significantly better.</p>
 
-<!-- CLOSING -->
-<section id="closing">
-    <div class="bg-cover">
-        <img src="7.png" alt="One Canal Road">
-        <div class="overlay-bottom"></div>
+      <div class="proof-images">
+        <div class="placeholder card">AirDNA Screenshot #1 (PNG)</div>
+        <div class="placeholder card">AirDNA Screenshot #2 (PNG)</div>
+        <div class="placeholder card">AirDNA Screenshot #3 (PNG)</div>
+      </div>
+
+      <ul class="clean">
+        <li>Average apartments already achieving 40%+ occupancy</li>
+        <li>Poor furnishing, branding, and photography in competitors</li>
+        <li>Inferior buildings still showing active demand</li>
+      </ul>
     </div>
-    <div class="rel-content">
-        <div class="container fade-up" style="text-align: center; padding-top: 12vh; padding-bottom: 10vh;">
-            <div class="eyebrow">The Recommendation</div>
-            <div class="hairline" style="margin: 0 auto 2rem;"></div>
-            <h2 class="display" style="max-width: 640px; margin: 0 auto;">Create Pakistan's leading<br>branded residence platform.</h2>
-            <p style="font-size: clamp(0.88rem, 1.6vw, 1.1rem); color: var(--gold); margin-top: 1.2rem; font-weight: 300; letter-spacing: 0.5px;">Not another rental programme. A performing asset strategy.</p>
-            <div class="closing-actions">
-                <div class="closing-action-box">
-                    <div class="step-num">1</div>
-                    <div class="step-title">Approve Pilot</div>
-                    <div class="step-sub">10–15 qualifying units</div>
-                </div>
-                <div class="closing-action-box">
-                    <div class="step-num">2</div>
-                    <div class="step-title">Approve Economics</div>
-                    <div class="step-sub">25% fee, 60/40 ES/OH split</div>
-                </div>
-                <div class="closing-action-box">
-                    <div class="step-num">3</div>
-                    <div class="step-title">Approve Framework</div>
-                    <div class="step-sub">Reserve-backed 10% target</div>
-                </div>
-                <div class="closing-action-box">
-                    <div class="step-num">4</div>
-                    <div class="step-title">Approve Brand Controls</div>
-                    <div class="step-sub">OH front, ES operations</div>
-                </div>
-            </div>
-            <div class="closing-brand">One Homes Collection.</div>
-            <div class="closing-powered">Powered by Expat Stays</div>
-            <div class="hairline" style="margin: 2rem auto;"></div>
-            <p style="font-size: 0.88rem; color: var(--muted); line-height: 2.2; font-weight: 300;">
-                A smarter way to own.<br>A better way to stay.<br>A new way for One Homes to grow.
-            </p>
-            <p style="font-size: 0.58rem; color: rgba(255,255,255,0.18); margin-top: 3.5rem; letter-spacing: 1px;">
-                Confidential feasibility draft. All numbers require legal, accounting and operational approval before external use.
-            </p>
+  </section>
+
+  <!-- SLIDE 5: LUXURY HOTEL MARKET -->
+  <section id="hotel-market">
+    <div class="container">
+      <div class="eyebrow">Slide 5 — The Luxury Hotel Market</div>
+      <div class="hairline"></div>
+      <h2 class="title">Guests are already paying luxury rates in Lahore.</h2>
+
+      <div class="table-wrap" style="margin-top:20px;">
+        <table>
+          <thead><tr><th>Hotel</th><th>Average Nightly Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Nishat</td><td class="gold">$140 – $180</td></tr>
+            <tr><td>PC Lahore</td><td class="gold">$100 – $150</td></tr>
+            <tr><td>Avari</td><td class="gold">$100 – $140</td></tr>
+            <tr><td>The Fred</td><td class="gold">$80 – $150</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:18px;">
+        <span class="pill">More space</span>
+        <span class="pill">More privacy</span>
+        <span class="pill">Better family experience</span>
+        <span class="pill">Better long-stay experience</span>
+        <span class="pill">Better amenities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: HOW OH MAKES MONEY -->
+  <section id="money">
+    <div class="container">
+      <div class="eyebrow">Slide 6 — How One Homes Makes Money</div>
+      <div class="hairline"></div>
+      <h2 class="title">Five revenue streams.</h2>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="stream"><div class="num">01</div><div><h3>Apartment Setup Revenue</h3><p>Furniture, electronics, décor, photography, owner onboarding.</p></div></div>
+        <div class="stream"><div class="num">02</div><div><h3>Management Revenue</h3><p>Every booking generates recurring management income.</p></div></div>
+        <div class="stream"><div class="num">03</div><div><h3>Operational Contribution</h3><p>Housekeeping, concierge, and building staff support.</p></div></div>
+        <div class="stream"><div class="num">04</div><div><h3>Future Property Sales</h3><p>Guests convert into future investors.</p></div></div>
+        <div class="stream"><div class="num">05</div><div><h3>Investor Retention</h3><p>Higher returns, higher satisfaction, more repeat investors.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: WHY INVESTORS JOIN -->
+  <section id="investors">
+    <div class="container">
+      <div class="eyebrow">Slide 7 — Why Investors Will Join</div>
+      <div class="hairline"></div>
+      <h2 class="title">An apartment should pay for its own ownership.</h2>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead><tr><th>Traditional Rental</th><th>One Homes Collection</th></tr></thead>
+          <tbody>
+            <tr><td>~3% Yield</td><td class="gold">Potential 7%–12% Yield</td></tr>
+            <tr><td>Apartment Sits Empty</td><td>Generates Income</td></tr>
+            <tr><td>Self Managed</td><td>Fully Managed</td></tr>
+            <tr><td>Passive Asset</td><td>Hospitality Asset</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="card"><h3>$250,000 Apartment — Traditional Rental</h3><p>≈ $7,500 / year</p></div>
+        <div class="card"><h3>$250,000 Apartment — Branded Residence</h3><p class="gold" style="font-weight:700;">≈ $17,500 – $30,000 / year</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: OCCUPANCY GROWTH PLAN (YEAR WISE) -->
+  <section id="occupancy-growth">
+    <div class="container">
+      <div class="eyebrow">Slide 8 — Occupancy Growth Plan</div>
+      <div class="hairline"></div>
+      <h2 class="title">Occupancy is built, not assumed.</h2>
+      <p class="sub">Marketing, brand awareness, repeat guests, direct bookings, overseas audience, and One Homes Collection brand recognition.</p>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr><th>Year</th><th>Phase</th><th>Target Occupancy</th><th>Focus</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Year 1 (First 6 Months)</td><td>Launch Phase</td><td class="gold">30%</td><td>Foundational onboarding + first booking momentum</td></tr>
+            <tr><td>Year 1 (Second 6 Months)</td><td>Growth Phase</td><td class="gold">50%</td><td>Review velocity + repeat guests + stronger funnel</td></tr>
+            <tr><td>Year 2 Onwards</td><td>Mature Operations</td><td class="gold">70%</td><td>Brand-led demand + direct booking efficiency</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: YEAR 1 FORECAST -->
+  <section id="year1">
+    <div class="container">
+      <div class="eyebrow">Slide 9 — Year 1 Forecast</div>
+      <div class="hairline"></div>
+      <h2 class="title">Year 1: Launch + Growth</h2>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3>First 6 Months — 30% Occupancy (Launch Phase)</h3>
+          <p>Insert 1 Bedroom, 2 Bedroom, 3 Bedroom tables (your approved figures).</p>
         </div>
+        <div class="card">
+          <h3>Second 6 Months — 50% Occupancy (Growth Phase)</h3>
+          <p>Insert 1 Bedroom, 2 Bedroom, 3 Bedroom tables (your approved figures).</p>
+        </div>
+      </div>
+
+      <p class="note">Launch Phase Forecast + Growth Phase Forecast shown separately to match board clarity.</p>
     </div>
-</section>
+  </section>
 
+  <!-- SLIDE 10: YEAR 2 FORECAST -->
+  <section id="year2">
+    <div class="container">
+      <div class="eyebrow">Slide 10 — Year 2 Forecast</div>
+      <div class="hairline"></div>
+      <h2 class="title">Stabilised Operations — 70% Occupancy</h2>
+      <p class="headline">Once the platform matures, recurring revenue accelerates significantly.</p>
 
-<script>
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                e.target.querySelectorAll('.rate-bar-fill[data-width]').forEach(bar => {
-                    bar.style.width = bar.dataset.width + '%';
-                });
-                e.target.querySelectorAll('.adoption-bar-fill[data-width]').forEach(bar => {
-                    bar.style.transition = 'width 1.2s ease';
-                    bar.style.width = bar.dataset.width + '%';
-                });
-            }
-        });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(el => obs.observe(el));
+      <div class="card" style="margin-top:16px;">
+        <h3>Year 2 Tables</h3>
+        <p>Insert 1 Bedroom, 2 Bedroom, 3 Bedroom Year-2 tables (your approved updated numbers).</p>
+      </div>
+    </div>
+  </section>
 
-    const adoptionBars = document.querySelectorAll('.adoption-bar-fill[data-width]');
-    const barObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.style.transition = 'width 1.2s ease';
-                e.target.style.width = e.target.dataset.width + '%';
-            }
-        });
-    }, { threshold: 0.1 });
-    adoptionBars.forEach(b => barObs.observe(b));
-</script>
+  <!-- Recurring Revenue wording update -->
+  <section id="recurring-revenue">
+    <div class="container">
+      <div class="eyebrow">Recurring Revenue From Sold Inventory</div>
+      <div class="hairline"></div>
+      <h2 class="title">One Homes Collection recurring revenue from sold inventory.</h2>
+      <p class="sub">Post-sale monetization model attached to already sold units.</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: WHY EXPAT STAYS (REPLACED WITH YOUR REQUIRED CLIENT-ATTRACTION CONTENT) -->
+  <section id="why-expat">
+    <div class="container">
+      <div class="eyebrow">Slide 11 — Why Expat Stays</div>
+      <div class="hairline"></div>
+      <h2 class="title">How we attract overseas clientele.</h2>
+
+      <div class="grid-4" style="margin-top:14px;">
+        <div class="xp-stat"><div class="v">1.5M</div><div class="l">Monthly Views</div></div>
+        <div class="xp-stat"><div class="v">75%</div><div class="l">Overseas Pakistani Viewers</div></div>
+        <div class="xp-stat"><div class="v">60K+</div><div class="l">Follower Community</div></div>
+        <div class="xp-stat"><div class="v">5★</div><div class="l">Bagh Guest Proof</div></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="card">
+          <h3>1) Personal Brand</h3>
+          <p>1.5 million views per month, with 75% overseas Pakistani audience. People trust and book from familiar faces.</p>
+        </div>
+        <div class="card">
+          <h3>2) Targeted Paid Marketing</h3>
+          <p>Highly targeted ads in UAE, UK, USA, KSA, and additional overseas Pakistani-heavy regions.</p>
+        </div>
+        <div class="card">
+          <h3>3) Organic Content Marketing</h3>
+          <p>Property-focused captions, audio trends, and story formats that resonate with overseas Pakistani preferences.</p>
+        </div>
+        <div class="card">
+          <h3>4) Founder-Market Fit</h3>
+          <p>As an overseas Pakistani, you understand what this audience needs and wants when booking or investing.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3>5) Overseas Influencer Collaborations</h3>
+        <p>Partnerships with overseas influencers specifically to reach high-intent overseas Pakistani travelers and investors.</p>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="card">
+          <h3>Bagh — Market-Relevant Proof</h3>
+          <p>Bagh validates premium hospitality demand: strong guest experience, repeat guests, and social trust signals that directly support One Homes Collection positioning.</p>
+          <ul class="clean">
+            <li>Luxury farmhouse hospitality operations already tested</li>
+            <li>Guest satisfaction and review credibility</li>
+            <li>Proof that premium Pakistan stays can be branded and scaled</li>
+          </ul>
+        </div>
+        <div class="bagh-gallery">
+          <img src="bagh_2.jpeg" alt="Bagh Property Image" />
+          <img src="bagh_review.jpeg" alt="Bagh Guest Review Image" />
+        </div>
+      </div>
+
+      <div class="proof-images" style="margin-top:14px;">
+        <div class="placeholder card">airbnb_1.png (to be added)</div>
+        <div class="placeholder card">airbnb_2.png (to be added)</div>
+        <div class="placeholder card">airbnb_3.png (to be added)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: LONG TERM VISION -->
+  <section id="vision">
+    <div class="container center">
+      <div class="eyebrow">Slide 12 — Long-Term Vision</div>
+      <div class="hairline"></div>
+      <h2 class="title">Today → Tomorrow → Future</h2>
+
+      <div class="grid-3" style="margin-top:16px;text-align:left;">
+        <div class="card"><h3>Today</h3><p>One Canal Road</p></div>
+        <div class="card"><h3>Tomorrow</h3><p>Every One Homes Development</p></div>
+        <div class="card"><h3>Future</h3><p>Pakistan’s Leading Branded Residence Platform</p></div>
+      </div>
+
+      <p class="headline" style="margin-top:20px;">Every apartment sold should continue generating value long after the sale.</p>
+    </div>
+  </section>
+
+  <!-- FINAL SLIDE -->
+  <section id="final-slide">
+    <div class="container center">
+      <img src="logo3.png" alt="One Homes Collection Logo" class="final-logo" />
+      <h2 class="title" style="margin-bottom:6px;">One Homes Collection</h2>
+      <p class="sub" style="margin:0 auto;">Powered by Expat Stays</p>
+
+      <div class="final-lines">
+        <div>Recurring Revenue.</div>
+        <div>Stronger Investor Returns.</div>
+        <div>Future Property Sales.</div>
+      </div>
+
+      <p class="headline" style="margin-top:24px;">A Smarter Way to Own.</p>
+    </div>
+  </section>
+
 </body>
 </html>
