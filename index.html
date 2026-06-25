@@ -120,7 +120,6 @@
       font-size:.82rem;padding:.8rem .7rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--off-white)
     }
     .data-table td.gold{color:var(--gold);font-weight:600}
-    .green{color:var(--success)}
 
     .stream{display:grid;grid-template-columns:42px 1fr auto;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
     .stream:last-child{border-bottom:none}
@@ -145,7 +144,6 @@
       padding:1rem .7rem .45rem
     }
 
-    /* animated KPI cards */
     .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
     .kpi{
       border:1px solid var(--border);
@@ -162,7 +160,6 @@
       font-size:.68rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)
     }
 
-    /* Amenities */
     .amenity-card{
       border:1px solid var(--border);
       border-radius:10px;
@@ -183,7 +180,6 @@
     .amenity-title{font-size:.82rem;color:#fff;font-weight:600;line-height:1.35}
     .amenity-sub{font-size:.72rem;color:var(--muted);margin-top:.2rem}
 
-    /* Airbnb */
     .airbnb-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -222,8 +218,19 @@
       margin-bottom:.25rem;
     }
 
-    /* Bagh */
-    .bagh-layout{display:grid;grid-template-columns:1.06fr .94fr;gap:1rem;align-items:start}
+    .bagh-split{
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:1rem;
+      margin-top:1rem;
+    }
+
+    .bagh-brand-row{
+      display:flex;
+      align-items:center;
+      gap:.9rem;
+      margin-bottom:1rem;
+    }
     .logo-wrap{
       display:inline-flex;
       align-items:center;
@@ -232,9 +239,17 @@
       border-radius:10px;
       padding:.55rem .7rem;
       border:1px solid rgba(0,0,0,.08);
-      margin-bottom:1rem;
+      min-width:74px;
+      min-height:74px;
     }
     .bagh-logo{height:52px;object-fit:contain}
+    .bagh-brand-text{
+      font-family:'Cinzel',serif;
+      color:var(--gold);
+      font-size:1.05rem;
+      letter-spacing:.3px;
+    }
+
     .bagh-gallery{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -246,10 +261,9 @@
       border:1px solid var(--border);
       background:#0a120e;
       object-fit:cover;
-      min-height:210px;
+      min-height:220px;
       display:block;
     }
-
     .img-standard{aspect-ratio:4/5}
     .img-review{
       aspect-ratio:3/4;
@@ -259,6 +273,8 @@
     .img-wide{
       aspect-ratio:16/11;
       object-position:center;
+      grid-column:1 / -1;
+      min-height:250px;
     }
 
     #final{
@@ -279,7 +295,7 @@
       .kpi-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width:980px){
-      .grid-2,.grid-3,.grid-4,.grid-5,.bagh-layout,.occ-summary{grid-template-columns:1fr}
+      .grid-2,.grid-3,.grid-4,.grid-5,.occ-summary,.bagh-split{grid-template-columns:1fr}
       .bagh-gallery{grid-template-columns:1fr 1fr}
     }
     @media (max-width:620px){
@@ -291,6 +307,7 @@
       .airbnb-grid,.bagh-gallery,.occ-meta,.kpi-grid{grid-template-columns:1fr}
       .airbnb-item img{height:220px}
       .data-table th,.data-table td{font-size:.68rem;padding:.55rem .45rem}
+      .img-wide{min-height:220px}
     }
   </style>
 </head>
@@ -305,7 +322,6 @@
     <img src="logo2_bg_less.png" alt="Expat Stays" class="nav-right">
   </nav>
 
-  <!-- COVER -->
   <section id="hero">
     <div class="bg-cover">
       <img src="2.png" alt="One Canal Road">
@@ -321,134 +337,51 @@
     </div>
   </section>
 
-  <!-- OPPORTUNITY -->
   <section class="section-a">
     <div class="container">
       <div class="fade">
         <div class="eyebrow">The Opportunity</div>
         <div class="hairline"></div>
         <h2 class="display">Most developers make money once.<br>One Homes Collection creates recurring revenue.</h2>
-        <p class="body-copy" style="margin-top:1rem;max-width:760px">Create recurring revenue without building another project.</p>
-      </div>
-
-      <div class="grid-2 fade d1" style="margin-top:1.2rem">
-        <div class="card">
-          <h3>Core Benefits</h3>
-          <ul class="list">
-            <li>Revenue from apartment setups</li>
-            <li>Revenue from management and operations</li>
-            <li>Increased investor retention</li>
-            <li>Future property sales</li>
-            <li>Contribution toward operational staff</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Key Message</h3>
-          <p>Recurring revenue can be created from sold inventory without developing another project.</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF OF DEMAND -->
   <section class="section-b">
     <div class="container">
       <div class="fade">
         <div class="eyebrow">Proof of Demand</div>
         <div class="hairline"></div>
         <h2 class="display">Demand already exists.</h2>
-        <p class="body-copy" style="margin-top:1rem;max-width:760px">If average apartments can perform, a professionally managed branded platform can perform significantly better.</p>
       </div>
 
       <div class="airbnb-grid fade d1">
-        <article class="airbnb-item">
-          <img src="airbnb1.png" alt="Airbnb demand screenshot 1">
-          <div class="airbnb-caption">
-            <strong>Airbnb Snapshot 01</strong>
-            High occupancy despite average presentation quality confirms active demand.
-          </div>
-        </article>
-
-        <article class="airbnb-item">
-          <img src="airbnb2.png" alt="Airbnb demand screenshot 2">
-          <div class="airbnb-caption">
-            <strong>Airbnb Snapshot 02</strong>
-            Under-branded listings still convert, proving room for premium uplift.
-          </div>
-        </article>
-
-        <article class="airbnb-item">
-          <img src="airbnb3.png" alt="Airbnb demand screenshot 3">
-          <div class="airbnb-caption">
-            <strong>Airbnb Snapshot 03</strong>
-            Booking consistency supports scalable branded operations.
-          </div>
-        </article>
-
-        <article class="airbnb-item">
-          <img src="airbnb4.png" alt="Airbnb demand screenshot 4">
-          <div class="airbnb-caption">
-            <strong>Airbnb Snapshot 04</strong>
-            Market is ready for premium, professionally managed residences.
-          </div>
-        </article>
+        <article class="airbnb-item"><img src="airbnb1.png" alt="Airbnb 1"><div class="airbnb-caption"><strong>Snapshot 01</strong>High occupancy despite average quality.</div></article>
+        <article class="airbnb-item"><img src="airbnb2.png" alt="Airbnb 2"><div class="airbnb-caption"><strong>Snapshot 02</strong>Under-branded listings still convert.</div></article>
+        <article class="airbnb-item"><img src="airbnb3.png" alt="Airbnb 3"><div class="airbnb-caption"><strong>Snapshot 03</strong>Consistent booking behavior across inventory.</div></article>
+        <article class="airbnb-item"><img src="airbnb4.png" alt="Airbnb 4"><div class="airbnb-caption"><strong>Snapshot 04</strong>Clear room for premium brand positioning.</div></article>
       </div>
     </div>
   </section>
 
-  <!-- HOW MONEY IS MADE -->
   <section class="section-a">
-    <div class="bg-cover">
-      <img src="7.png" alt="One Homes Collection">
-      <div class="overlay-right"></div>
-    </div>
-    <div class="rel">
-      <div class="container">
-        <div class="fade">
-          <div class="eyebrow">How One Homes Collection Makes Money</div>
-          <div class="hairline"></div>
-          <h2 class="display">Five revenue streams.</h2>
-        </div>
+    <div class="container">
+      <div class="fade">
+        <div class="eyebrow">How One Homes Collection Makes Money</div>
+        <div class="hairline"></div>
+        <h2 class="display">Five revenue streams.</h2>
+      </div>
 
-        <div class="card fade d1" style="margin-top:1rem">
-          <div class="stream">
-            <div class="num">01</div>
-            <div><h3>Apartment Setup Revenue</h3><p>Furniture, electronics, décor, photography, owner onboarding.</p></div>
-            <div class="tag">Setup</div>
-          </div>
-
-          <div class="stream">
-            <div class="num">02</div>
-            <div>
-              <h3>Management Revenue</h3>
-              <p>As we use One Homes services, we also contribute toward their team salaries, creating recurring management income plus payroll contribution value.</p>
-            </div>
-            <div class="tag">Recurring</div>
-          </div>
-
-          <div class="stream">
-            <div class="num">03</div>
-            <div><h3>Operational Contribution</h3><p>Housekeeping, concierge and service operations contribution from active inventory.</p></div>
-            <div class="tag">Ops</div>
-          </div>
-
-          <div class="stream">
-            <div class="num">04</div>
-            <div><h3>Future Property Sales</h3><p>Every guest can become a future investor.</p></div>
-            <div class="tag">Sales</div>
-          </div>
-
-          <div class="stream">
-            <div class="num">05</div>
-            <div><h3>Investor Retention</h3><p>Higher returns, stronger satisfaction, and repeat investors.</p></div>
-            <div class="tag">Retention</div>
-          </div>
-        </div>
+      <div class="card fade d1" style="margin-top:1rem">
+        <div class="stream"><div class="num">01</div><div><h3>Apartment Setup Revenue</h3><p>Furniture, electronics, décor, photography, owner onboarding.</p></div><div class="tag">Setup</div></div>
+        <div class="stream"><div class="num">02</div><div><h3>Management Revenue</h3><p>As we use One Homes services, we also contribute toward their team salaries, creating recurring management income plus payroll contribution value.</p></div><div class="tag">Recurring</div></div>
+        <div class="stream"><div class="num">03</div><div><h3>Operational Contribution</h3><p>Housekeeping, concierge and service operations contribution from active inventory.</p></div><div class="tag">Ops</div></div>
+        <div class="stream"><div class="num">04</div><div><h3>Future Property Sales</h3><p>Every guest can become a future investor.</p></div><div class="tag">Sales</div></div>
+        <div class="stream"><div class="num">05</div><div><h3>Investor Retention</h3><p>Higher returns, stronger satisfaction, and repeat investors.</p></div><div class="tag">Retention</div></div>
       </div>
     </div>
   </section>
 
-  <!-- OCCUPANCY FORECAST -->
   <section class="section-b">
     <div class="container">
       <div class="fade">
@@ -457,80 +390,14 @@
         <h2 class="display">Three Forecast Scenarios Based on Occupancy</h2>
       </div>
 
-      <div class="occ-meta fade d1">
-        <div class="meta-box"><strong>Management fee</strong>25% of total projected gross revenue</div>
-        <div class="meta-box"><strong>Owner revenue</strong>75% after management fee</div>
-        <div class="meta-box"><strong>Updated ADRs</strong>2BR $150 · 3BR $200</div>
-        <div class="meta-box"><strong>Currency</strong>All values in USD</div>
-      </div>
-
-      <!-- requested exact occupancy staging -->
       <div class="occ-summary fade d1">
-        <div class="occ-box">
-          <div class="v"><span class="countup" data-target="25" data-suffix="%">0%</span></div>
-          <div class="l">25% Occupancy</div>
-          <div class="d">Months 1–6 (Launch)</div>
-        </div>
-        <div class="occ-box">
-          <div class="v"><span class="countup" data-target="50" data-suffix="%">0%</span></div>
-          <div class="l">50% Occupancy</div>
-          <div class="d">Months 6–12 (Growth)</div>
-        </div>
-        <div class="occ-box">
-          <div class="v"><span class="countup" data-target="80" data-suffix="%">0%</span></div>
-          <div class="l">80% Occupancy</div>
-          <div class="d">From Year 2 Onward (Mature)</div>
-        </div>
-      </div>
-
-      <div class="section-label fade d2">Years and Month Revenue</div>
-
-      <div class="table-wrap fade d2">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Occ.</th>
-              <th>Apartment Type</th>
-              <th>Units</th>
-              <th>Avg Price</th>
-              <th>ADR</th>
-              <th>Annual Gross Revenue</th>
-              <th>Expat Stays Fee (25%)</th>
-              <th>Owner Revenue (75%)</th>
-              <th>Gross Yield</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>25%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$287,438</td><td>$71,859</td><td class="gold">$215,578</td><td>4.84%</td></tr>
-            <tr><td>25%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$561,188</td><td>$140,297</td><td class="gold">$420,891</td><td>4.72%</td></tr>
-            <tr><td>25%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$365,000</td><td>$91,250</td><td class="gold">$273,750</td><td>5.04%</td></tr>
-            <tr><td>25%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$65,700</td><td>$16,425</td><td class="gold">$49,275</td><td>5.69%</td></tr>
-            <tr><td>25%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$350</td><td>$31,938</td><td>$7,984</td><td class="gold">$23,953</td><td>5.44%</td></tr>
-            <tr><td>25%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$400</td><td>$36,500</td><td>$9,125</td><td class="gold">$27,375</td><td>3.16%</td></tr>
-            <tr><td>25%</td><td><strong>TOTAL / WEIGHTED PORTFOLIO</strong></td><td>108</td><td>-</td><td>-</td><td><strong>$1,347,763</strong></td><td><strong>$336,941</strong></td><td class="gold"><strong>$1,010,822</strong></td><td><strong>4.82%</strong></td></tr>
-
-            <tr><td>50%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$574,875</td><td>$143,719</td><td class="gold">$431,156</td><td>9.68%</td></tr>
-            <tr><td>50%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$1,122,375</td><td>$280,594</td><td class="gold">$841,781</td><td>9.44%</td></tr>
-            <tr><td>50%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$730,000</td><td>$182,500</td><td class="gold">$547,500</td><td>10.08%</td></tr>
-            <tr><td>50%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$131,400</td><td>$32,850</td><td class="gold">$98,550</td><td>11.38%</td></tr>
-            <tr><td>50%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$350</td><td>$63,875</td><td>$15,969</td><td class="gold">$47,906</td><td>10.88%</td></tr>
-            <tr><td>50%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$400</td><td>$73,000</td><td>$18,250</td><td class="gold">$54,750</td><td>6.33%</td></tr>
-            <tr><td>50%</td><td><strong>TOTAL / WEIGHTED PORTFOLIO</strong></td><td>108</td><td>-</td><td>-</td><td><strong>$2,695,525</strong></td><td><strong>$673,881</strong></td><td class="gold"><strong>$2,021,644</strong></td><td><strong>9.64%</strong></td></tr>
-
-            <tr><td>80%</td><td>1 Bedroom</td><td>42</td><td>$106,003</td><td>$75</td><td>$919,800</td><td>$229,950</td><td class="gold">$689,850</td><td>15.49%</td></tr>
-            <tr><td>80%</td><td>2 Bedroom</td><td>41</td><td>$217,576</td><td>$150</td><td>$1,795,800</td><td>$448,950</td><td class="gold">$1,346,850</td><td>15.10%</td></tr>
-            <tr><td>80%</td><td>3 Bedroom</td><td>20</td><td>$271,637</td><td>$200</td><td>$1,168,000</td><td>$292,000</td><td class="gold">$876,000</td><td>16.12%</td></tr>
-            <tr><td>80%</td><td>Sky Villas (2 Bed)</td><td>3</td><td>$288,747</td><td>$240</td><td>$210,240</td><td>$52,560</td><td class="gold">$157,680</td><td>18.20%</td></tr>
-            <tr><td>80%</td><td>Sky Villas (3 Bed)</td><td>1</td><td>$440,473</td><td>$350</td><td>$102,200</td><td>$25,550</td><td class="gold">$76,650</td><td>17.40%</td></tr>
-            <tr><td>80%</td><td>Sky Villas (4 Bed)</td><td>1</td><td>$865,149</td><td>$400</td><td>$116,800</td><td>$29,200</td><td class="gold">$87,600</td><td>10.13%</td></tr>
-            <tr><td>80%</td><td><strong>TOTAL / WEIGHTED PORTFOLIO</strong></td><td>108</td><td>-</td><td>-</td><td><strong>$4,312,840</strong></td><td><strong>$1,078,210</strong></td><td class="gold"><strong>$3,234,630</strong></td><td><strong>15.42%</strong></td></tr>
-          </tbody>
-        </table>
+        <div class="occ-box"><div class="v"><span class="countup" data-target="25" data-suffix="%">0%</span></div><div class="l">25% Occupancy</div><div class="d">Months 1–6</div></div>
+        <div class="occ-box"><div class="v"><span class="countup" data-target="50" data-suffix="%">0%</span></div><div class="l">50% Occupancy</div><div class="d">Months 6–12</div></div>
+        <div class="occ-box"><div class="v"><span class="countup" data-target="80" data-suffix="%">0%</span></div><div class="l">80% Occupancy</div><div class="d">From Year 2 onward</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ONE CANAL ROAD AMENITIES -->
   <section class="section-a">
     <div class="container">
       <div class="fade">
@@ -554,145 +421,99 @@
     </div>
   </section>
 
-  <!-- WHY EXPAT STAYS + BAGH -->
   <section class="section-b">
     <div class="container">
       <div class="fade">
         <div class="eyebrow">Why Expat Stays</div>
         <div class="hairline"></div>
-        <h2 class="display">The right partner to drive occupancy, trust, and long-term growth.</h2>
-        <p class="body-copy" style="margin-top:1rem;max-width:900px">
-          One Homes Collection needs more than apartment management. It needs deep overseas investor understanding,
-          luxury hospitality execution, and direct access to high-quality guests and future investors.
-          Expat Stays brings all three through six years of overseas-focused property management, proven Bagh operations,
-          and founder-led audience reach.
-        </p>
+        <h2 class="display">The right partner to drive occupancy, trust, and growth.</h2>
       </div>
 
       <div class="kpi-grid fade d1">
-        <div class="kpi">
-          <div class="val"><span class="countup" data-target="6" data-suffix="+">0+</span></div>
-          <div class="lbl">Years Overseas-Focused Experience</div>
-        </div>
-        <div class="kpi">
-          <div class="val"><span class="countup" data-target="1.5" data-decimals="1" data-suffix="M">0M</span></div>
-          <div class="lbl">Monthly Reach</div>
-        </div>
-        <div class="kpi">
-          <div class="val"><span class="countup" data-target="75" data-suffix="%">0%</span></div>
-          <div class="lbl">Audience Is Overseas Pakistani</div>
-        </div>
-        <div class="kpi">
-          <div class="val"><span class="countup" data-target="6" data-suffix="">0</span></div>
-          <div class="lbl">Acquisition Channels</div>
-        </div>
+        <div class="kpi"><div class="val"><span class="countup" data-target="6" data-suffix="+">0+</span></div><div class="lbl">Years Experience</div></div>
+        <div class="kpi"><div class="val"><span class="countup" data-target="1.5" data-decimals="1" data-suffix="M">0M</span></div><div class="lbl">Monthly Reach</div></div>
+        <div class="kpi"><div class="val"><span class="countup" data-target="75" data-suffix="%">0%</span></div><div class="lbl">Overseas Audience</div></div>
+        <div class="kpi"><div class="val"><span class="countup" data-target="6">0</span></div><div class="lbl">Acquisition Channels</div></div>
       </div>
 
       <div class="grid-2 fade d2" style="margin-top:1rem">
         <div class="card">
-          <h3>Why Expat Stays Is Strategic</h3>
+          <h3>Strategic Strength</h3>
           <ul class="list">
-            <li>Six years managing properties owned by overseas Pakistanis</li>
-            <li>Strong understanding of investor expectations, communication, trust, and asset care</li>
-            <li>Proven luxury hospitality through Bagh operations</li>
-            <li>Live pricing, occupancy, service delivery, and premium experience know-how</li>
-            <li>Direct access to a high-intent overseas audience from launch day</li>
-          </ul>
-
-          <h3 style="margin-top:1rem">Customer Acquisition Strategy (Presentable Summary)</h3>
-          <ul class="list">
-            <li><strong>Personal Brand:</strong> 1.5M monthly views, 75% overseas Pakistanis, familiar-face trust drives bookings</li>
-            <li><strong>Targeted Ads:</strong> UAE, UK, USA, KSA, Canada + other relevant markets</li>
-            <li><strong>Organic Marketing:</strong> captions and audios tailored for overseas Pakistani behavior</li>
-            <li><strong>Founder Advantage:</strong> overseas Pakistani insight into what guests and investors want</li>
-            <li><strong>Influencer Partnerships:</strong> overseas Pakistani creators for trust and conversion</li>
-            <li><strong>Ecosystem Flywheel:</strong> guest → investor → repeat buyer loop</li>
+            <li>6 years managing overseas Pakistani-owned properties</li>
+            <li>Deep investor communication and trust systems</li>
+            <li>Proven luxury hospitality through Bagh</li>
+            <li>Hands-on pricing, occupancy, and service delivery expertise</li>
           </ul>
         </div>
-
         <div class="card">
-          <div class="logo-wrap">
-            <img src="bagh_logo.png" alt="Bagh Logo" class="bagh-logo">
+          <h3>Customer Acquisition Strategy</h3>
+          <ul class="list">
+            <li>Personal brand: 1.5M monthly views, 75% overseas Pakistani audience</li>
+            <li>Targeted ads: UAE, UK, USA, KSA, Canada</li>
+            <li>Organic content for overseas Pakistani behavior</li>
+            <li>Founder advantage + overseas influencer partnerships</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-a">
+    <div class="container">
+      <div class="fade">
+        <div class="eyebrow">Bagh Hospitality Proof</div>
+        <div class="hairline"></div>
+        <h2 class="display">Luxury hospitality proof-of-performance.</h2>
+      </div>
+
+      <div class="bagh-split fade d1">
+        <div class="card">
+          <div class="bagh-brand-row">
+            <div class="logo-wrap"><img src="bagh_logo.png" alt="Bagh Logo" class="bagh-logo"></div>
+            <div class="bagh-brand-text">Bagh by Expat Stays</div>
           </div>
-
-          <h3>Bagh Hospitality Proof</h3>
-          <p>
-            Bagh validates premium demand, repeat guest behavior, and service standards that can be transferred directly to One Homes Collection.
-          </p>
-
-          <h3 style="margin-top:1rem">Bagh Amenities</h3>
+          <h3>Bagh Amenities</h3>
           <ul class="list">
             <li>Private luxury farmhouse stay experience</li>
             <li>Heated pool and landscaped garden</li>
             <li>Family-friendly social spaces</li>
             <li>Curated premium interior environment</li>
-            <li>Host support and hospitality-led service model</li>
+            <li>Hospitality-led host support</li>
           </ul>
         </div>
-      </div>
 
-      <div class="bagh-gallery fade d3" style="margin-top:1rem">
-        <img src="SnapInsta.to_670760900_17885950905497784_9033382022902896840_n.jpg" alt="Bagh exterior" class="img-standard">
-        <img src="SnapInsta.to_670776365_17885950977497784_1569665429548335837_n.jpg" alt="Bagh lifestyle" class="img-standard">
-        <img src="bagh_2.png" alt="Bagh property view" class="img-wide">
-        <img src="baghreview.png" alt="Bagh guest review" class="img-review">
-        <img src="bagh3.jpg" alt="Bagh interior lounge" class="img-wide" style="grid-column:1 / -1;">
+        <div class="bagh-gallery">
+          <img src="SnapInsta.to_670760900_17885950905497784_9033382022902896840_n.jpg" alt="Bagh exterior" class="img-standard">
+          <img src="SnapInsta.to_670776365_17885950977497784_1569665429548335837_n.jpg" alt="Bagh lifestyle" class="img-standard">
+          <img src="bagh_2.png" alt="Bagh property view" class="img-wide">
+          <img src="baghreview.png" alt="Bagh guest review" class="img-review">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LONG TERM VISION -->
-  <section class="section-a">
-    <div class="container center">
-      <div class="fade">
-        <div class="eyebrow">Long-Term Vision</div>
-        <div class="hairline"></div>
-        <h2 class="display">Today → Tomorrow → Future</h2>
-      </div>
-
-      <div class="grid-3 fade d1" style="margin-top:1rem;text-align:left">
-        <div class="card"><h3>Today</h3><p>One Canal Road</p></div>
-        <div class="card"><h3>Tomorrow</h3><p>Every One Homes Development</p></div>
-        <div class="card"><h3>Future</h3><p>Pakistan’s Leading Branded Residence Platform</p></div>
-      </div>
-
-      <p class="body-copy fade d2" style="margin-top:1rem;color:var(--off-white)">
-        Every apartment sold should continue generating value long after the sale.
-      </p>
-    </div>
-  </section>
-
-  <!-- FINAL -->
   <section id="final">
     <div class="container rel fade">
       <img src="logo3.png" alt="One Homes Collection" style="height:95px;object-fit:contain">
       <div class="final-brand">One Homes Collection</div>
       <div class="final-sub">Powered by Expat Stays</div>
-      <div class="hairline" style="margin:2rem auto"></div>
-      <p style="color:#d2d2d2;line-height:2">
-        Recurring Revenue.<br>
-        Stronger Investor Returns.<br>
-        Future Property Sales.
-      </p>
-      <p style="margin-top:1.1rem;color:var(--gold);font-family:'Cinzel',serif">A Smarter Way to Own.</p>
     </div>
   </section>
 
   <script>
-    // fade-in animation
     const fadeEls = document.querySelectorAll('.fade');
     const fadeObs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
     },{threshold:.12});
     fadeEls.forEach(el=>fadeObs.observe(el));
 
-    // count-up animation
     const countEls = document.querySelectorAll('.countup');
     const animateCount = (el) => {
       const target = parseFloat(el.dataset.target || "0");
       const suffix = el.dataset.suffix || "";
       const decimals = parseInt(el.dataset.decimals || "0", 10);
-      const duration = 1400;
+      const duration = 1200;
       const start = performance.now();
 
       const step = (now) => {
