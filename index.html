@@ -127,13 +127,18 @@
 
         /* REVENUE STREAMS */
         #revenue { background: var(--panel); }
-        .revenue-list { margin-top: 2.5rem; }
-        .revenue-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 1.4rem; align-items: start; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .revenue-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+        .revenue-list { margin-top: 0; }
+        .revenue-item { display: grid; grid-template-columns: 40px 1fr auto; gap: 1.2rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .revenue-item:last-child { border-bottom: none; }
-        .rev-num { font-family: 'Cinzel', serif; font-size: 1.9rem; color: rgba(201,168,76,0.18); line-height: 1; }
+        .rev-num { font-family: 'Cinzel', serif; font-size: 1.6rem; color: rgba(201,168,76,0.18); line-height: 1; }
         .rev-body h3 { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
         .rev-body p { font-size: 0.76rem; color: var(--muted); }
         .rev-figure { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--gold); white-space: nowrap; padding-top: 0.1rem; }
+
+        /* COUNT-UP numbers */
+        .countup { display: inline-block; }
+
 
         /* PORTFOLIO */
         #portfolio { background: var(--panel-light); }
@@ -213,7 +218,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 960px) {
-            .split, .portfolio-split, .director-grid, .bagh-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .split, .portfolio-split, .director-grid, .bagh-grid, .revenue-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .story-grid { grid-template-columns: 1fr 1fr; }
             .amenity-grid { grid-template-columns: repeat(3, 1fr); }
             .standards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -429,10 +434,8 @@
                 <div class="fade-up delay-2" style="position: relative;">
                     <div style="position: relative; overflow: hidden; border-radius: 4px;">
                         <img src="6.png" alt="One Canal Road" style="width: 100%; display: block; transform: scale(1.04); transform-origin: center;">
-                        <!-- Fade into dark on all edges -->
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,8,6,0.35) 0%, transparent 25%, transparent 65%, rgba(4,8,6,0.8) 100%); pointer-events: none;"></div>
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,8,6,0.55) 0%, transparent 30%, transparent 70%, rgba(4,8,6,0.45) 100%); pointer-events: none;"></div>
-                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,8,6,0.3) 0%, transparent 20%); pointer-events: none;"></div>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,8,6,0.1) 0%, transparent 20%, transparent 70%, rgba(4,8,6,0.5) 100%); pointer-events: none;"></div>
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,8,6,0.3) 0%, transparent 20%); pointer-events: none;"></div>
                     </div>
                 </div>
             </div>
@@ -574,10 +577,13 @@
     </div>
     <div class="rel-content">
         <div class="container section-pad">
-            <div style="max-width: 560px;">
-                <div class="eyebrow fade-up">Five Revenue Streams</div>
-                <div class="hairline fade-up"></div>
-                <h2 class="display fade-up">Beyond rentals.<br>A platform that monetises everything.</h2>
+            <div class="revenue-layout">
+                <div>
+                    <div class="eyebrow fade-up">Five Revenue Streams</div>
+                    <div class="hairline fade-up"></div>
+                    <h2 class="display fade-up">Beyond rentals.<br>A platform that<br>monetises everything.</h2>
+                    <p class="body-copy fade-up delay-1" style="margin-top: 1.2rem; max-width: 420px;">Every unit that enters the programme generates recurring income for One Homes — on top of the sale that already happened.</p>
+                </div>
                 <div class="revenue-list fade-up delay-1">
                     <div class="revenue-item">
                         <div class="rev-num">01</div>
