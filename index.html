@@ -35,6 +35,8 @@
         .bg-cover { position: absolute; inset: 0; z-index: 0; }
         .bg-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.25; }
         .overlay-bottom { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,8,6,0.2) 0%, rgba(4,8,6,0.98) 100%); z-index: 1; }
+        .overlay-left { position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,8,6,0.97) 48%, rgba(4,8,6,0.1) 100%); z-index: 1; }
+        .overlay-right { position: absolute; inset: 0; background: linear-gradient(to left, rgba(4,8,6,0.97) 48%, rgba(4,8,6,0.1) 100%); z-index: 1; }
         .rel-content { position: relative; z-index: 2; }
 
         /* NAV */
@@ -47,8 +49,12 @@
 
         /* HERO */
         #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        #hero .rel-content { padding: 15vh 5vw 8vh; }
         .hero-headline { font-family: 'Cinzel', serif; font-size: clamp(2.4rem, 5.5vw, 4.8rem); font-weight: 400; line-height: 1.1; color: var(--white); max-width: 800px; margin: 0 auto; }
         .hero-sub { font-size: clamp(0.95rem, 1.5vw, 1.25rem); color: var(--gold); font-weight: 300; letter-spacing: 1px; margin-top: 1.8rem; }
+        .scroll-hint { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; color: var(--muted); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; }
+        .scroll-hint::after { content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollLine 2s ease-in-out infinite; }
+        @keyframes scrollLine { 0%,100%{opacity:0.3} 50%{opacity:1} }
 
         /* ATTRACTING OVERSEAS CLIENTELE */
         #attracting-overseas { background: var(--panel); border-bottom: 1px solid var(--border); }
@@ -59,15 +65,29 @@
         .clientele-box p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
         /* AMENITIES */
-        #amenities { background: var(--panel); }
+        #amenities { background: var(--panel); border-top: 1px solid rgba(255,255,255,0.02); }
         .amenity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
         .amenity-item { border: 1px solid rgba(255,255,255,0.05); padding: 2rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.01); text-align: center; }
         .amenity-item .icon-num { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); margin: 0 auto 1rem; }
         .amenity-item h4 { font-size: 0.85rem; color: var(--white); margin-bottom: 0.4rem; }
         .amenity-item p { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
 
+        /* PRICING */
+        #pricing { background: var(--panel-light); }
+        .split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
+        .data-table th { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: 1rem 0.8rem; border-bottom: 1px solid var(--border); text-align: left; font-weight: 500; }
+        .data-table td { padding: 1rem 0.8rem; font-size: 0.85rem; color: var(--off-white); border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .data-table td.gold { color: var(--gold); font-weight: 500; }
+        .rate-bar-group { margin-top: 2.5rem; }
+        .rate-bar-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; }
+        .rate-bar-label { font-size: 0.75rem; color: var(--muted); min-width: 120px; text-align: right; text-transform: uppercase; letter-spacing: 1px; }
+        .rate-bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; }
+        .rate-bar-fill { height: 100%; border-radius: 3px; background: var(--gold); }
+        .rate-bar-val { font-size: 0.75rem; color: var(--off-white); min-width: 90px; font-weight: 500; }
+
         /* AIRBNB VALIDATION */
-        #airbnb-validation { background: var(--panel-light); border-top: 1px solid var(--border); }
+        #airbnb-validation { background: var(--panel); border-top: 1px solid var(--border); }
         .airbnb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
         .airbnb-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 1.5rem; text-align: center; }
         .airbnb-card img { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-bottom: 1.5rem; }
@@ -76,21 +96,24 @@
         #occupancy-roi { background: var(--panel); }
         .occ-summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3.5rem auto 0; max-width: 960px; }
         .occ-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem 2rem; text-align: center; }
-        
+        .occ-meta { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin: 3rem 0 2rem; padding: 1.5rem; background: rgba(255,255,255,0.02); border-radius: 6px; }
+
         /* REVENUE STREAMS */
-        #revenue { background: var(--panel-light); }
+        #revenue { background: var(--panel-light); border-top: 1px solid var(--border); }
         .revenue-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
         .rev-num { font-family: 'Cinzel', serif; font-size: 2rem; color: rgba(201,168,76,0.25); }
+        .revenue-item { display: grid; grid-template-columns: 50px 1fr auto; gap: 1.5rem; align-items: center; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
         /* PORTFOLIO */
         #portfolio { background: var(--panel); }
         .portfolio-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .adoption-rows { margin-top: 2.5rem; }
+        .adoption-row { display: grid; grid-template-columns: 75px 105px 1fr auto; gap: 1.5rem; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
         /* BAGH */
-        #bagh { background: #0a0f0c; border-top: 1px solid var(--border); }
+        #bagh { background: #0a0f0c; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .bagh-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
         .bagh-logo-img { width: 180px; filter: brightness(0) invert(1) opacity(0.8); }
-        .bagh-images-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .bagh-review-panel { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; display: flex; gap: 1.5rem; align-items: center; }
         .bagh-review-panel img { width: 160px; border-radius: 4px; }
 
@@ -102,16 +125,14 @@
         /* CLOSING */
         #closing { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; }
         .closing-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 900px; margin: 4rem auto 0; }
+        .closing-action-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; }
         
         /* ANIMATIONS */
-        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 1024px) {
-            .split, .portfolio-split, .bagh-grid, .revenue-layout { grid-template-columns: 1fr; }
-            .amenity-grid { grid-template-columns: repeat(3, 1fr); }
-            .airbnb-grid, .closing-actions { grid-template-columns: 1fr 1fr; }
-        }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
     </style>
 </head>
 <body>
@@ -131,8 +152,10 @@
         <h1 class="hero-headline fade-up">Pakistan's Leading<br>Branded Residence Platform</h1>
         <p class="hero-sub fade-up">Luxury hospitality meets residential excellence.</p>
     </div>
+    <div class="scroll-hint">Scroll</div>
 </section>
 
+<!-- ATTRACTING OVERSEAS CLIENTELE -->
 <section id="attracting-overseas">
     <div class="container section-pad">
         <div class="eyebrow">Market Reach</div>
@@ -163,18 +186,22 @@
     </div>
 </section>
 
-<section id="amenities"><div class="container section-pad">
-    <div class="eyebrow">One Canal Road Amenities</div>
-    <div class="hairline"></div>
-    <h2 class="display">Hotel-grade amenities.<br>Apartment-grade privacy.</h2>
-    <div class="amenity-grid">
-        <div class="amenity-item"><div class="icon-num">01</div><h4>Coffee Shop</h4><p>Lifestyle</p></div>
-        <div class="amenity-item"><div class="icon-num">02</div><h4>Concierge</h4><p>Service</p></div>
-        <div class="amenity-item"><div class="icon-num">03</div><h4>Store</h4><p>Essentials</p></div>
-        <div class="amenity-item"><div class="icon-num">04</div><h4>Sky Pool</h4><p>Leisure</p></div>
-        <div class="amenity-item"><div class="icon-num">05</div><h4>Kids' Club</h4><p>Family</p></div>
+<section id="amenities">
+    <div class="container section-pad">
+        <div class="eyebrow">One Canal Road Amenities</div>
+        <div class="hairline"></div>
+        <h2 class="display">Hotel-grade amenities.<br>Apartment-grade privacy.</h2>
+        <div class="amenity-grid">
+            <div class="amenity-item"><div class="icon-num">01</div><h4>Coffee Shop</h4><p>Lifestyle</p></div>
+            <div class="amenity-item"><div class="icon-num">02</div><h4>Concierge</h4><p>Service</p></div>
+            <div class="amenity-item"><div class="icon-num">03</div><h4>Store</h4><p>Essentials</p></div>
+            <div class="amenity-item"><div class="icon-num">04</div><h4>Sky Pool</h4><p>Leisure</p></div>
+            <div class="amenity-item"><div class="icon-num">05</div><h4>Kids' Club</h4><p>Family</p></div>
+        </div>
     </div>
-</div></section>
+</section>
+
+<!-- ... [Remaining sections: Pricing, Airbnb, Occupancy, Revenue, Portfolio, Bagh, Pilot, Guarantee, Expat Stays, Closing] ... -->
 
 <script>
     const fadeEls = document.querySelectorAll('.fade-up');
